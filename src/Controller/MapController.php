@@ -10,6 +10,8 @@
 namespace App\Controller;
 
 use App\Model\MapManager;
+use App\Service\Egg;
+use App\Service\Map;
 
 /**
  * Class ItemController
@@ -29,10 +31,11 @@ class MapController extends AbstractController
      */
     public function index()
     {
-        $mapManager = new MapManager();
-        $map = $mapManager->selectAll();
-
-        return $this->twig->render('Map/index.html.twig', ['map' => $map]);
+/*        $map = new Map(10, 25, 'TOTO');
+        $map->generator();*/
+        $egg = new Egg();
+        $egg->loadData();
+        return 'ok';
     }
 
 
@@ -65,12 +68,12 @@ class MapController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $itemManager = new MapManager();
-        $map = $itemManager->selectOneById($id);
+        $mapManager = new MapManager();
+        $map = $mapManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $map['title'] = $_POST['title'];
-            $itemManager->update($map);
+            $mapManager->update($map);
         }
 
         return $this->twig->render('Map/edit.html.twig', ['map' => $map]);
