@@ -5,6 +5,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "title";
+    src: url("../fonts/Pastas-Black.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
 video.fullscreen {
     position: fixed;
     top: 50%;
@@ -19,10 +26,16 @@ video.fullscreen {
 
 .h1_title{
     margin-top: 200px;
+    font-family: 'title', serif;
+    color: deeppink;
+    font-size: 80px;
+    padding: 20px 40px;
+    background-color: rgba(0,255,255,0.5);
 }
 
 .btn_play{
-    margin-top: 300px;
+    font-family: 'retro', serif;
+    margin-top: 180px;
 }
 
 .btn-item{
