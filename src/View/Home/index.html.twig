@@ -10,8 +10,14 @@
     <div class="text-center btn_play">
         <button type="button" class="btn btn-item btn-lg"><a class="play_link" href="/home/config">PLAY</a></button>
     </div>
-    <div class="text-center">
-        <a class="text_accueil" href="/rule">Rules</a><br/>
-        <a class="text_accueil" href="/home/config">Credits</a>
+    <div class="text-center text_item">
+        <ul class="text_item">
+            <li><a class="text_accueil" href="/rule">Rules</a></li>
+            <li><a class="text_accueil" href="/home/config">Credits</a></li>
+        </ul>
     </div>
+    <audio autoplay="true" loop>
+        <source src="{{ base_path ~ directory }}/assets/images/back-in-black.mp3" type="audio/mp3"/>
+        Votre navigateur n'est pas compatible
+    </audio>
 {% endblock %}

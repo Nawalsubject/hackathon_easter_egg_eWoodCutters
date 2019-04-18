@@ -249,6 +249,11 @@ video.fullscreen {
     text-decoration: none;
 }
 
+.text_item{
+    margin-top: 10px;
+    text-decoration: none;
+}
+
 .text_accueil{
     margin-top: 30px;
     align-content: center;
@@ -275,3 +280,7 @@ video.fullscreen {
     font-size: 1rem;
     color: white;
 }
+
+
+
+
