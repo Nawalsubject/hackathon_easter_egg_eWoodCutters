@@ -179,3 +179,9 @@ html, body {
 /*--------------- CARD PLAYER --------------*/
 
 
+@font-face {
+    font-family: "retro";
+    src: url("../fonts/slkscr.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
