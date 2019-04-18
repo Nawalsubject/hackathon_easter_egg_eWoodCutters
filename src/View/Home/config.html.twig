@@ -1,7 +1,13 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
     <h1>Choisissez vos personnages !</h1>
-    {% include 'Item/character.html.twig' %}
 
-    {%  include 'Item/_playerCard.html.twig' %}
+    <div class="center">
+        <div class="card-deck">
+            {% for class in classes %}
+            {% include 'Item/character.html.twig' %}
+            {% endfor %}
+        </div>
+    </div>
+
 {% endblock %}
