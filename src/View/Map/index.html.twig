@@ -1,7 +1,11 @@
 {% extends 'layout.html.twig' %}
-
 {% block content %}
+    {% include 'Item/_playerCard.html.twig' %}
+
     <div class="container-fluid my-5">
+        <div class="controller">
+            <img src="/assets/images/dpad.png">
+        </div>
     <div class="grid border border-dark">
         {%  for i  in 0..5 %}
         <div class="row m-0">
