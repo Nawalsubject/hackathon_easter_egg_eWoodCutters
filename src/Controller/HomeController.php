@@ -35,10 +35,9 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/index.html.twig');
     }
 
-    public function config()
+    public function config1()
     {
         /* tableau pour test */
-
 
         $class= [
             ['name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',

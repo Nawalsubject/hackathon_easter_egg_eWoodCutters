@@ -10,11 +10,11 @@ use GuzzleHttp;
 class Charac
 {
     private $id;
-    private $specie;
+    private $kind;
     private $name;
     private $gender;
     private $origin;
-    private $image;
+    private $picture;
     private $skills;
     public $caids = ['Alien', 'Cronenberg', 'Disease'];
     public $intellos = ['Human', 'Human/Cyborg', 'Human/Mutant', 'Humanoïd'];
@@ -22,17 +22,17 @@ class Charac
     public $sportifs = ['Rabbit toon', 'Amazonian Woman', 'Human toon'];
 
 
-    public function __construct(string $id = '', $specie = '')
+    public function __construct(string $id = '', $kind = '')
     {
         $this->setId($id);
-        $this->setSpecie($specie);
+        $this->setkind($kind);
         $characParameters = $this->loadData();
         $this->setId($characParameters['id']);
-        $this->setSpecie($characParameters['species']);
+        $this->setkind($characParameters['species']);
         $this->setName($characParameters['name']);
         $this->setGender($characParameters['gender']);
         $this->setOrigin($characParameters['origin']);
-        $this->setImage($characParameters['image']);
+        $this->setPicture($characParameters['image']);
         $this->setSkills($characParameters['skills']);
     }
 
@@ -46,28 +46,28 @@ class Charac
         );
 
 
-        echo $this->getSpecie();
+        echo $this->getkind();
 
         if (!empty($this->id)) {
             $response = $client->request('GET', $this->id);
             $body = $response->getBody();
             $charachs = json_decode($body->getContents(), true);
         } else {
-            switch ($this->specie) {
+            switch ($this->kind) {
                 case 'caid':
-                    $specieArray = $this->caids;
+                    $kindArray = $this->caids;
                     break;
                 case 'intello':
-                    $specieArray = $this->intellos;
+                    $kindArray = $this->intellos;
                     break;
                 case 'vegan':
-                    $specieArray = $this->vegans;
+                    $kindArray = $this->vegans;
                     break;
                 case 'sportif':
-                    $specieArray = $this->sportifs;
+                    $kindArray = $this->sportifs;
                     break;
                 default:
-                    $specieArray = [];
+                    $kindArray = [];
                     break;
             }
 
@@ -75,7 +75,7 @@ class Charac
             $body = $response->getBody();
             $charachs = json_decode($body->getContents(), true);
 
-            while (!in_array($charachs['species'], $specieArray)) {
+            while (!in_array($charachs['species'], $kindArray)) {
                 $response = $client->request('GET', 'random');
                 $body = $response->getBody();
                 $charachs = json_decode($body->getContents(), true);
@@ -104,14 +104,14 @@ class Charac
     /**
      * @return mixed
      */
-    public function getSpecie()
+    public function getkind()
     {
-        return $this->specie;
+        return $this->kind;
     }
 
-    public function setSpecie($specie): void
+    public function setkind($kind): void
     {
-        $this->specie = $specie;
+        $this->kind = $kind;
     }
 
     /**
@@ -165,17 +165,17 @@ class Charac
     /**
      * @return mixed
      */
-    public function getImage()
+    public function getPicture()
     {
-        return $this->image;
+        return $this->picture;
     }
 
     /**
-     * @param mixed $image
+     * @param mixed $picture
      */
-    public function setImage($image): void
+    public function setPicture($picture): void
     {
-        $this->image = $image;
+        $this->picture = $picture;
     }
 
     /**
