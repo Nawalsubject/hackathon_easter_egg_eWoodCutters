@@ -39,7 +39,6 @@ class HomeController extends AbstractController
     {
         /* tableau pour test */
 
-
         $class= [
             ['name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
                 'races' =>[ 'race1', 'race2', 'race3']],
