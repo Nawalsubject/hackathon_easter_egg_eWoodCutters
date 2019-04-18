@@ -224,17 +224,16 @@ video.fullscreen {
 }
 
 .h1_title{
-    margin-top: 200px;
-    font-family: 'title', serif;
-    color: deeppink;
-    font-size: 80px;
-    padding: 20px 40px;
-    background-color: rgba(0,255,255,0.5);
+    margin-top: 100px;
+    position: relative;
+    top: 20%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
 }
 
 .btn_play{
     font-family: 'retro', serif;
-    margin-top: 180px;
+    margin-top: 250px;
 }
 
 .btn-item{
@@ -247,6 +246,14 @@ video.fullscreen {
 
 .btn-item .play_link {
     text-decoration: none;
+}
+
+.text_accueil{
+    margin-top: 30px;
+    align-content: center;
+    font-family: 'retro', serif;
+    font-size: 40px;
+    color: black;
 }
 
 .footerBotron {
