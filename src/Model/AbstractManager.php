@@ -30,7 +30,14 @@ abstract class AbstractManager
     protected $className;
 
 
-    /**
+    /**public $decodeJson;
+
+    public function __construct(string $id)
+    {
+        // Create a client with a base URI
+        $client = new GuzzleHttp\(['base_uri' => 'https://easteregg.wildcodeschool.fr/api/eggs/' . $id,]);
+        $this->decodeJson = json_decode($client, true);
+    }
      * Initializes Manager Abstract class.
      * @param string $table
      */

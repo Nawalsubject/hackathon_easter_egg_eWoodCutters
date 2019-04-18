@@ -37,6 +37,18 @@ class HomeController extends AbstractController
 
     public function config()
     {
-        return $this->twig->render('Home/config.html.twig');
+        /* tableau pour test */
+        $class= [
+            ['name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
+                'races' =>[ 'race1', 'race2', 'race3']],
+            ['name' => 'Les Intellos', 'picture' => '/assets/images/intello.png',
+                ['races' => 'race YO', 'race POUET']],
+            ['name' => 'Les Sportifs', 'picture' => '/assets/images/sportif.jpg',
+            'description' => 'description ... '],
+            ['name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
+                'description' => 'description ... ']
+            /* tableau pour test */
+        ];
+        return $this->twig->render('Home/config.html.twig', ['classes'=> $class]);
     }
 }

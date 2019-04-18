@@ -12,12 +12,12 @@ namespace App\Model;
 /**
  *
  */
-class MapManager extends AbstractManager
+class CellManager extends AbstractManager
 {
     /**
      *
      */
-    const TABLE = 'map';
+    const TABLE = 'cell';
 
     /**
      *  Initializes this class.
@@ -29,19 +29,16 @@ class MapManager extends AbstractManager
 
 
     /**
-     * @param array $map
+     * @param array $cell
      * @return int
      */
-    public function insert(array $map): int
+    public function insert(array $cell): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table 
-            VALUES (NULL, :name, :width,:height,:background,:descr)");
-        $statement->bindValue('name', $map['name'], \PDO::PARAM_STR);
-        $statement->bindValue('width', $map['width'], \PDO::PARAM_INT);
-        $statement->bindValue('height', $map['height'], \PDO::PARAM_INT);
-        $statement->bindValue('background', $map['background'], \PDO::PARAM_STR);
-        $statement->bindValue('descr', $map['descr'], \PDO::PARAM_STR);
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`x`,`y`,`map_id`) VALUES (:x, :y, :map_id)");
+        $statement->bindValue('x', $cell['x'], \PDO::PARAM_INT);
+        $statement->bindValue('y', $cell['y'], \PDO::PARAM_INT);
+        $statement->bindValue('map_id', $cell['map_id'], \PDO::PARAM_INT);
 
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
@@ -62,16 +59,16 @@ class MapManager extends AbstractManager
 
 
     /**
-     * @param array $map
+     * @param array $cell
      * @return bool
      */
-    public function update(array $map):bool
+    public function update(array $cell):bool
     {
 
         // prepared request
         $statement = $this->pdo->prepare("UPDATE $this->table SET `title` = :title WHERE id=:id");
-        $statement->bindValue('id', $map['id'], \PDO::PARAM_INT);
-        $statement->bindValue('title', $map['title'], \PDO::PARAM_STR);
+        $statement->bindValue('id', $cell['id'], \PDO::PARAM_INT);
+        $statement->bindValue('title', $cell['title'], \PDO::PARAM_STR);
 
         return $statement->execute();
     }

@@ -193,9 +193,19 @@ html, body {
     width: 33%;
 }
 
-
 /*--------------- CARD PLAYER --------------*/
+/* -------------- CARD CONFIG --------------*/
+.class-picture {
+    margin-top: 20px;
+    height: 80px;
+    width: auto;
+}
 
+.card-config {
+    width: 1300px;
+    height: auto;
+}
+/* -------------- CARD CONFIG ---------------*/
 
 @font-face {
     font-family: "retro";
@@ -281,6 +291,14 @@ video.fullscreen {
     color: white;
 }
 
+/*rulespage*/
 
+h1{
+    text-align: center;
+}
 
+.table{
+    text-align: center;
+
+}
 

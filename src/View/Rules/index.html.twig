@@ -1,0 +1,94 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+    <h1>Les règles du jeu</h1>
+        <h2>Le but du jeu</h2>
+    <p>Règles du jeu : </p>
+
+        <h2>Les différentes espèces de notre monde</h2>
+        <p>Il existe quatre différentes races: </p>
+        <ul>
+            <li>Les caïds</li>
+            <li>Les premiers de la classe</li>
+            <li>Les sportifs</li>
+            <li>Les vegans</li>
+        </ul>
+        <h2>Les différentes caractéristiques</h2>
+        Chaque espèce possède un attribut propre à elle-même lui donnant un avantage bien spécifique.
+            <section>
+        Les caïds possèdent une force plus élevée que celle des autres classes, c'est-à-dire que lors des combats, leurs attaques auront un bonus de +1.
+            </section>
+            <section>
+                Les premiers de la classe ont une meilleure dextérité, cela signifie que lorsqu'un personnage de cette classe lance le dé, l'écart permettant de pouvoir attaquer sera plus large,
+        exemple: le personnage possède un oeuf de base, afin de pouvoir attaquer, il faut que le résulat du lancé de dé soit entre 5 et 8, cependant, avec cette classe, la différence sera plus large,
+        soit entre 4 et 9.
+            </section>
+            <section>
+        Les sportifs ont la capacité de pouvoir se déplacer plus que les autres espèces, c'est-à-dire que lorsqu'un caid se déplace de 2 cases, le sportif, lui pourra se déplacer de 3 cases.
+            </section>
+            <section>
+                Les vegans possèdent, quant à eux, une jauge de vie plus élevée que celle des autres, cela veut dire qu'au début du jeu, les 4 précédentes espèces, caïds, sportifs et premiers de la
+            classe débutent avec un niveau de vie de 100 points alors que les vegans ont, quant à eux, une vie à 120 points.
+            </section>
+
+        <h2>Les oeufs, chérissez vos munitions.</h2>
+        Lors de votre aventure, vous trouverez différents types d'oeufs qui vous permettront d'atteindre votre objectif. En effet, il existe 4 types d'oeufs dans ce monde qui vous permettront atteindre votre objectif.
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Type d'oeuf</th>
+                <th scope="col">Dégats</th>
+                <th scope="col">Pourcentage de chance de toucher l'adversaire</th>
+                <th scope="col">Calibre de l'oeuf XS et S</th>
+                <th scope="col">Calibre de l'oeuf M</th>
+                <th scope="col">Calibre de l'oeuf L</th>
+                <th scope="col">Calibre de l'oeuf XL-2XL-3XL</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Oeuf de base</td>
+                <td>-5 points</td>
+                <td>80%</td>
+                <td>0 en dégat</td>
+                <td>+1 en dégat</td>
+                <td>+2 en dégat</td>
+                <td>+3 en dégat</td>
+            </tr>
+            <tr>
+                <td>Oeuf moyen</td>
+                <td>-10 points</td>
+                <td>60%</td>
+                <td>0 en dégat</td>
+                <td>+1 en dégat</td>
+                <td>+2 en dégat</td>
+                <td>+3 en dégat</td>
+            <tr>
+                <td>Oeuf supérieur</td>
+                <td>-20 points</td>
+                <td>40%</td>
+                <td>0 en dégat</td>
+                <td>+1 en dégat</td>
+                <td>+2 en dégat</td>
+                <td>+3 en dégat</td>
+            </tr>
+            <tr>
+                <td>Oeuf de légende</td>
+                <td>-40 points</td>
+                <td>20%</td>
+                <td>0 en dégat</td>
+                <td>0 en dégat</td>
+                <td>0 en dégat</td>
+                <td>0 en dégat</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}
