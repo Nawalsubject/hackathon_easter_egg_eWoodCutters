@@ -1,0 +1,15 @@
+<div class="card card-config text-center">
+    <div class="">
+        <img class="card-img-top class-picture" src="{{ class.picture }}" alt="image de classe">
+    </div>
+    <div class="card-body">
+        <h2 class="card-title">{{ class.name }}</h2>
+        <p class="card-text">{{ class.description }}</p>
+        <ul class="list-group list-group-flush">
+            {% for race in class.races %}
+                <li class="list-group-item">{{ race }}</li>
+            {% endfor %}
+        </ul>
+        <p class="card-text">{{ class.bonus }}</p>
+    </div>
+</div>

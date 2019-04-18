@@ -1,6 +1,6 @@
 <?php
 /**
- * This file define config constants .
+ * This file define Config constants .
  *
  * PHP version 7
  *

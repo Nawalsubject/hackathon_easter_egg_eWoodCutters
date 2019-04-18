@@ -6,7 +6,7 @@ parameters:
             standard: ./phpcs.xml
         phpstan:
             autoload_file:
-              config
+              Config
               ./vendor/autoload.php
             configuration: ./phpstan.neon
             level: 5

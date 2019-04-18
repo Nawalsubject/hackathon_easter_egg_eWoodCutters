@@ -8,6 +8,8 @@
 
 namespace App\Controller;
 
+use App\Model\ObjectManager;
+
 class HomeController extends AbstractController
 {
 
@@ -21,6 +23,32 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        /*$eggManager = new ObjectManager();
+        $nbEggs = $eggManager->getCountEgg(1);
+
+        $milkManager = new ObjectManager();
+        $nbMilk = $milkManager->getCountMilk(1);
+
+        $chocolateManager = new ObjectManager();
+        $nbChocolates = $chocolateManager->getCountChocolate(1);*/
+
         return $this->twig->render('Home/index.html.twig');
+    }
+
+    public function config()
+    {
+        /* tableau pour test */
+        $class= [
+            ['name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
+                'races' =>[ 'race1', 'race2', 'race3']],
+            ['name' => 'Les Intellos', 'picture' => '/assets/images/intello.png',
+                ['races' => 'race YO', 'race POUET']],
+            ['name' => 'Les Sportifs', 'picture' => '/assets/images/sportif.jpg',
+            'description' => 'description ... '],
+            ['name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
+                'description' => 'description ... ']
+            /* tableau pour test */
+        ];
+        return $this->twig->render('Home/config.html.twig', ['classes'=> $class]);
     }
 }
