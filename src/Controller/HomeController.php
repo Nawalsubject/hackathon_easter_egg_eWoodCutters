@@ -49,8 +49,8 @@ class HomeController extends AbstractController
             'description' => 'description ... '],
             ['name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
                 'description' => 'description ... ']
-            /* tableau pour test */
         ];
+        /* tableau pour test */
         return $this->twig->render('Home/config.html.twig', ['classes'=> $class]);
     }
 }

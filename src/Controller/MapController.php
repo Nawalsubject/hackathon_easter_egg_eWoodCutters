@@ -31,12 +31,25 @@ class MapController extends AbstractController
      */
     public function index()
     {
+        /* tableau pour test */
+
+        $players = [
+            ['id' => 1, 'name' => 'Darth Vader', 'picture' => 'https://images.innoveduc.fr/easter_hackathon/3.jpeg',
+                'species' => 'Human', 'gender' => 'male', 'origin' => 'Earth', 'class' => 'intello'],
+            ['id' => 2, 'name' => 'Abadango Cluster Princess',
+                'picture' => 'https://images.innoveduc.fr/easter_hackathon/6.jpeg', 'species' => 'Alien',
+                'gender' => 'female', 'origin' => 'Abadango', 'class' => 'caid'],
+
+        ];
+        /* tableau pour test */
+
+
         $map = new Map(12, 12, 2, 2, 3);
         $map->generator();
-/*        $egg = new Egg();
-        $egg->loadData();*/
+        /*        $egg = new Egg();
+                $egg->loadData();*/
         //return 'Genérateur Map OK';
-        return $this->twig->render('Map/index.html.twig', ['map' => $map]);
+        return $this->twig->render('Map/index.html.twig', ['map' => $map, 'players' => $players]);
     }
 
 
