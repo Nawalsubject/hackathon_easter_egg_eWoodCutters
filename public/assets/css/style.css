@@ -12,7 +12,7 @@ html, body {
 }
 
 .img_menu{
-    height: 60px;
+    height: 80px;
 }
 
 .menu_right{
@@ -318,19 +318,42 @@ video.full_opacity{
     text-decoration: none;
 }
 
-.text_item{
-    margin-top: 10px;
+.play_link:link, .play_link:visited {
+    color: #000;
+    text-align: center;
     text-decoration: none;
+    display: inline-block;
+}
+
+.play_link:hover, .play_link:active {
+    color: #c62b29;
+}
+
+.text_item{
+    text-decoration: none;
+    list-style: none;
+    padding-left: 0;
 }
 
 .text_accueil{
-    margin-top: 30px;
+
     align-content: center;
     font-family: 'retro', serif;
     font-size: 40px;
     color: black;
     text-decoration: none;
     list-style: none;
+}
+
+.text_item a:link, a:visited {
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.text_item a:hover, a:active {
+    color: #c62b29;
 }
 
 .footerBotron {
