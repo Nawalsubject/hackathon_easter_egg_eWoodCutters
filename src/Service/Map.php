@@ -183,6 +183,7 @@ class Map
         $idMap = $mapManager->insert($map);
 
         $this->generateCells($idMap);
+        $this->fillMapContent();
     }
 
     public function generateCells($mapId) : bool
@@ -191,8 +192,8 @@ class Map
         for ($col = 1; $col <= $this->width; $col++) {
             for ($row = 1; $row <= $this->height; $row++) {
                 $cell = [
-                    'x' => $row,
-                    'y' => $col,
+                    'x' => $col,
+                    'y' => $row,
                     'map_id' => $mapId,
                 ];
                 $cellManager->insert($cell);
@@ -204,11 +205,50 @@ class Map
 
     public function fillMapContent() : bool
     {
-/*
-        for ($iEgg = 0 ; $iEgg < $this->nbRandomEggs; $iEgg++) {
+        $cellManager = new CellManager();
 
-        }*/
+        //Add random placement eggs
+        for ($iEgg = 0; $iEgg < $this->nbRandomEggs; $iEgg++) {
+            $egg = new Egg();
+            $xpos = rand(1, $this->width);
+            $ypos = rand(1, $this->height);
 
+            $cell=$cellManager->selectOneByXY($xpos, $ypos);
+            $cellContent = [
+                'id' => $cell['id'],
+                'content_type_id' =>1
+            ];
+
+            $cellManager->updateContent($cellContent);
+        }
+
+        //Add random placement milk
+        for ($iMilk = 0; $iMilk < $this->nbRandomMilk; $iMilk++) {
+            $xpos = rand(1, $this->width);
+            $ypos = rand(1, $this->height);
+
+            $cell=$cellManager->selectOneByXY($xpos, $ypos);
+            $cellContent = [
+                'id' => $cell['id'],
+                'content_type_id' =>2
+            ];
+
+            $cellManager->updateContent($cellContent);
+        }
+
+        //Add random placement milk
+        for ($iChoco = 0; $iChoco < $this->nbRandomChoco; $iChoco++) {
+            $xpos = rand(1, $this->width);
+            $ypos = rand(1, $this->height);
+
+            $cell=$cellManager->selectOneByXY($xpos, $ypos);
+            $cellContent = [
+                'id' => $cell['id'],
+                'content_type_id' =>3
+            ];
+
+            $cellManager->updateContent($cellContent);
+        }
         return true;
     }
 }
