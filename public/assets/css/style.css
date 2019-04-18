@@ -39,7 +39,7 @@ html, body {
     z-index: 2;
 }
 
-.card.blue .additional {
+.card .blue {
     background: #2e2dfa;
 }
 
@@ -173,6 +173,24 @@ html, body {
     bottom: 1rem;
     right: 1rem;
     font-size: 0.9em;
+}
+
+.icons img{
+    margin-bottom: 10px;
+}
+
+.milk {
+    width: 22%;
+}
+
+.chocolate {
+    width: 28%;
+
+}.eggs {
+    width: 50%;
+
+}.life {
+    width: 33%;
 }
 
 
