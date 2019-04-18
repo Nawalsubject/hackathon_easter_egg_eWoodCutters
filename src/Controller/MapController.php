@@ -31,11 +31,12 @@ class MapController extends AbstractController
      */
     public function index()
     {
-/*        $map = new Map(10, 25, 'TOTO');
-        $map->generator();*/
-        $egg = new Egg();
-        $egg->loadData();
-        return 'ok';
+        $map = new Map(12, 12, 2, 2, 3);
+        $map->generator();
+/*        $egg = new Egg();
+        $egg->loadData();*/
+        //return 'Genérateur Map OK';
+        return $this->twig->render('Map/index.html.twig', ['map' => $map]);
     }
 
 

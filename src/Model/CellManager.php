@@ -29,6 +29,37 @@ class CellManager extends AbstractManager
 
 
     /**
+     * @param int $x
+     * @param int $y
+     * @return array
+     */
+    public function selectOneByXY(int $x, int $y):array
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT id FROM $this->table WHERE x=:x AND y=:y");
+        $statement->bindValue('x', $x, \PDO::PARAM_INT);
+        $statement->bindValue('y', $y, \PDO::PARAM_INT);
+
+        $statement->execute();
+
+        return $statement->fetch();
+    }
+
+    /**
+     * @param array $cellContent
+     * @return bool
+     */
+    public function updateContent(array $cellContent):bool
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `content_type_id` = :content_type_id WHERE id=:id");
+        $statement->bindValue('id', $cellContent['id'], \PDO::PARAM_INT);
+        $statement->bindValue('content_type_id', $cellContent['content_type_id'], \PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
+
+    /**
      * @param array $cell
      * @return int
      */
