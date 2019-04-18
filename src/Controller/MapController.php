@@ -30,6 +30,7 @@ class MapController extends AbstractController
     public function index()
     {
         $mapManager = new MapManager();
+
         $map = $mapManager->selectAll();
 
         return $this->twig->render('Map/index.html.twig', ['map' => $map]);
@@ -65,12 +66,12 @@ class MapController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $itemManager = new MapManager();
-        $map = $itemManager->selectOneById($id);
+        $mapManager = new MapManager();
+        $map = $mapManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $map['title'] = $_POST['title'];
-            $itemManager->update($map);
+            $mapManager->update($map);
         }
 
         return $this->twig->render('Map/edit.html.twig', ['map' => $map]);
