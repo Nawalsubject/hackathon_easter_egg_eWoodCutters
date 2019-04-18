@@ -30,7 +30,7 @@ class Egg
     const SUPERIEUR = 20;
     const LEGENDAIRE = 40;
 
-    public function __contruct(string $id = '')
+    public function __construct(string $id = '')
     {
         $this->setId($id);
         $eggParameters = $this->loadData();

@@ -9,6 +9,7 @@
 
 namespace App\Controller;
 
+use App\Service\Charac;
 use App\Model\ItemManager;
 
 /**
@@ -29,10 +30,10 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->selectAll();
+        $charac1 = new Charac('5cac51240d488f0da6151c31', '');
+        echo $charac1->getSpecie();
 
-        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
+        return $this->twig->render('Item/index.html.twig');
     }
 
 
