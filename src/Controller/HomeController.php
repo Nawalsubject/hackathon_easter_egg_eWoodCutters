@@ -35,7 +35,7 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/index.html.twig');
     }
 
-    public function config1()
+    public function config()
     {
         /* tableau pour test */
 
