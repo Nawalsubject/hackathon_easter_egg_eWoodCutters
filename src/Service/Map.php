@@ -120,6 +120,24 @@ class Map
             ];
 
         $idMap = $mapManager->insert($map);
-        echo $idMap;
+
+        $this->generateCells($idMap);
+    }
+
+    public function generateCells($mapId) : bool
+    {
+        $cellManager = new CellManager();
+        for ($col = 1; $col <= $this->width; $col++) {
+            for ($row = 1; $row <= $this->height; $row++) {
+                $cell = [
+                    'x' => $row,
+                    'y' => $col,
+                    'map_id' => $mapId,
+                ];
+                $cellManager->insert($cell);
+            }
+        }
+
+        return true;
     }
 }

@@ -35,8 +35,10 @@ class CellManager extends AbstractManager
     public function insert(array $cell): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
-        $statement->bindValue('title', $cell['title'], \PDO::PARAM_STR);
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`x`,`y`,`map_id`) VALUES (:x, :y, :map_id)");
+        $statement->bindValue('x', $cell['x'], \PDO::PARAM_INT);
+        $statement->bindValue('y', $cell['y'], \PDO::PARAM_INT);
+        $statement->bindValue('map_id', $cell['map_id'], \PDO::PARAM_INT);
 
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
