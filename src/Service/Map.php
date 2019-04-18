@@ -18,13 +18,26 @@ class Map
     private $height;
     private $name;
     private $descr;
+    private $nbRandomEggs;
+    private $nbRandomMilk;
+    private $nbRandomChoco;
 
-    public function __construct(int $width, int $height, string $name = "Choco Map", string $descr = "Ma carte")
-    {
+    public function __construct(
+        int $width,
+        int $height,
+        int $nbRandomEggs = 0,
+        int $nbRandomMilk = 0,
+        int $nbRandomChoco = 0,
+        string $name = "Choco Map",
+        string $descr = "Ma carte"
+    ) {
         $this->setHeight($height);
         $this->setWidth($width);
         $this->setName($name);
         $this->setDescr($descr);
+        $this->setNbRandomEggs($nbRandomEggs);
+        $this->setNbRandomMilk($nbRandomMilk);
+        $this->setNbRandomChoco($nbRandomChoco);
     }
     /**
      * @return mixed
@@ -95,6 +108,54 @@ class Map
         $this->height = $height;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNbRandomEggs()
+    {
+        return $this->nbRandomEggs;
+    }
+
+    /**
+     * @param mixed $nbRandomEggs
+     */
+    public function setNbRandomEggs($nbRandomEggs): void
+    {
+        $this->nbRandomEggs = $nbRandomEggs;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbRandomMilk()
+    {
+        return $this->nbRandomMilk;
+    }
+
+    /**
+     * @param mixed $nbRandomMilk
+     */
+    public function setNbRandomMilk($nbRandomMilk): void
+    {
+        $this->nbRandomMilk = $nbRandomMilk;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbRandomChoco()
+    {
+        return $this->nbRandomChoco;
+    }
+
+    /**
+     * @param mixed $nbRandomChoco
+     */
+    public function setNbRandomChoco($nbRandomChoco): void
+    {
+        $this->nbRandomChoco = $nbRandomChoco;
+    }
+
     public function generator()
     {
         $mapBackgroundManager = new MapBackgroundManager();
@@ -137,6 +198,16 @@ class Map
                 $cellManager->insert($cell);
             }
         }
+
+        return true;
+    }
+
+    public function fillMapContent() : bool
+    {
+/*
+        for ($iEgg = 0 ; $iEgg < $this->nbRandomEggs; $iEgg++) {
+
+        }*/
 
         return true;
     }

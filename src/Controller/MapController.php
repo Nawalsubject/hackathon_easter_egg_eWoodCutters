@@ -10,6 +10,7 @@
 namespace App\Controller;
 
 use App\Model\MapManager;
+use App\Service\Egg;
 use App\Service\Map;
 
 /**
@@ -30,9 +31,10 @@ class MapController extends AbstractController
      */
     public function index()
     {
-        $map = new Map(10, 25, 'TOTO');
-        $map->generator();
-
+/*        $map = new Map(10, 25, 'TOTO');
+        $map->generator();*/
+        $egg = new Egg();
+        $egg->loadData();
         return 'ok';
     }
 
