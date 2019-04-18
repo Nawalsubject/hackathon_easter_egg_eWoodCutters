@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-use App\Model\ObjectManager;
+use App\Model\PLayerManager;
 
 class HomeController extends AbstractController
 {
@@ -38,6 +38,7 @@ class HomeController extends AbstractController
     public function config()
     {
         /* tableau pour test */
+
         $class= [
             ['name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
                 'races' =>[ 'race1', 'race2', 'race3']],
@@ -47,8 +48,8 @@ class HomeController extends AbstractController
             'description' => 'description ... '],
             ['name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
                 'description' => 'description ... ']
-            /* tableau pour test */
         ];
+        /* tableau pour test */
         return $this->twig->render('Home/config.html.twig', ['classes'=> $class]);
     }
 }

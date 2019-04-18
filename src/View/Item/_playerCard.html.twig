@@ -1,7 +1,7 @@
-
-    <div class="card">
-        <div class="additional{% if player.id == 2 %} blue{% endif %}">
-            <div class="user-card">
+<div class="container-fluid">
+    <div class="card card_border1">
+        <div class="additional additional{{ player.id }}">
+            <div class="user-card user_card_size">
                 <div class="level center">
                     {{ player.charac_id }}
                 </div>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="stats icons">
                     <div>
-                        <div class="title"><img class="milk"src="/assets/images/milk.png"></div>
+                        <div class="title"><img class="milk" src="/assets/images/milk.png"></div>
                         <i class="fa fa-milk"></i>
                         <div class="value">{{ player.milk }}1</div>
                     </div>
@@ -51,5 +51,4 @@
             <span class="more">+ d'infos</span>
         </div>
     </div>
-
-
+</div>

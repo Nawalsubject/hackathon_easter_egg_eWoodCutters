@@ -36,7 +36,7 @@ html, body {
 }
 
 .card {
-    width: 450px;
+    width: 600px;
     height: 250px;
     background-color: #fff;
     background: linear-gradient(#f8f8f8, #fff);
@@ -53,12 +53,34 @@ html, body {
 
 .card .additional {
     position: absolute;
-    width: 150px;
+    width: 200px;
     height: 100%;
-    background: #ff193f;
     transition: width 0.4s;
     overflow: hidden;
     z-index: 2;
+}
+
+.card .additional1 {
+    background: #49a790;
+    font-family: 'retro', sans-serif;
+    font-size: 30px;
+}
+
+.card .additional2 {
+    background: #feb81c;
+    font-family: 'retro', sans-serif;
+    font-size: 30px;
+}
+
+.card_border1{
+    border: 0.5px solid #49a790;
+}
+.card_border2 {
+    border: 0.5px solid #feb81c;
+}
+
+.user_card_size{
+    width: 300px;
 }
 
 .card .blue {
@@ -72,7 +94,7 @@ html, body {
 }
 
 .card .additional .user-card {
-    width: 150px;
+    width: 200px;
     height: 100%;
     position: relative;
     float: left;
@@ -110,10 +132,10 @@ html, body {
 }
 
 .card .additional .more-info {
-    width: 300px;
+    width: 400px;
     float: left;
     position: absolute;
-    left: 150px;
+    left: 200px;
     height: 100%;
 }
 
@@ -126,7 +148,7 @@ html, body {
 .card .additional .coords {
     margin: 0 1rem;
     color: #fff;
-    font-size: 1rem;
+    font-size: 35px;
 }
 
 
@@ -150,7 +172,7 @@ html, body {
     width: 60%;
     position: absolute;
     top: 75px;
-    left: 30px;
+    left: 70px;
 }
 
 .card .additional .stats > div {
@@ -169,7 +191,7 @@ html, body {
 }
 
 .card .additional .stats div.value {
-    font-size: 1.5rem;
+    font-size: 50px;
     font-weight: bold;
     line-height: 1.5rem;
 }
@@ -195,6 +217,8 @@ html, body {
     bottom: 1rem;
     right: 1rem;
     font-size: 0.9em;
+    font-family: 'retro', sans-serif;
+    font-size: 30px;
 }
 
 .icons img{
@@ -202,17 +226,17 @@ html, body {
 }
 
 .milk {
-    width: 22%;
+    width: 32%;
 }
 
 .chocolate {
-    width: 28%;
+    width: 38%;
 
 }.eggs {
-    width: 50%;
+    width: 60%;
 
 }.life {
-    width: 33%;
+    width: 43%;
 }
 
 /*--------------- CARD PLAYER --------------*/
@@ -374,6 +398,7 @@ video.full_opacity{
     color: white;
 }
 
+
 /*rulespage*/
 
 h1{
@@ -385,4 +410,45 @@ h1{
 
 }
 
+
+.grid {
+    margin: 0 auto;
+    width: 100vw;
+    max-width: 80vh;
+    height: 100vw;
+    max-height: 80vh;
+    font-size: 1rem;
+    background-image: url("../images/backgroundmap/zelda.jpg");
+    border: 1rem solid !important;
+}
+.row {
+    display: flex;
+}
+.box {
+    background: black;
+    filter: blur(1px);
+    opacity: .9;
+    border-color: white;
+
+    color: white;
+    font-weight: bold;
+    flex: 1 0 auto;
+    position: relative;
+}
+.box:after {
+    content: "";
+    float:left;
+    display: block;
+    padding-top: 100%;
+}
+.box .inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 

@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    {% for player in players %}
+        {% include 'Item/_playerCard.html.twig' %}
+    {% endfor %}
+    <div class="container-fluid my-5">
+        <div class="controller">
+            <img src="/assets/images/dpad.png">
+        </div>
+        <div class="grid border border-dark">
+            {% for i  in 0..5 %}
+                <div class="row m-0">
+                    {% for i  in 0..5 %}
+                        <div class="box border border-white">
+                            <div class="inner"></div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
