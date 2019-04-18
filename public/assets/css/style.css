@@ -14,7 +14,7 @@ html, body {
 }
 
 .card {
-    width: 450px;
+    width: 800px;
     height: 250px;
     background-color: #fff;
     background: linear-gradient(#f8f8f8, #fff);
@@ -31,12 +31,27 @@ html, body {
 
 .card .additional {
     position: absolute;
-    width: 150px;
+    width: 300px;
     height: 100%;
-    background: #ff193f;
     transition: width 0.4s;
     overflow: hidden;
     z-index: 2;
+}
+
+.card .additional1 {
+    background: #49a790;
+    font-family: 'retro', sans-serif;
+    font-size: 30px;
+}
+
+.card .additional2 {
+    background: #feb81c;
+    font-family: 'retro', sans-serif;
+    font-size: 30px;
+}
+
+.user_card_size{
+    width: 300px;
 }
 
 .card .blue {
@@ -50,7 +65,7 @@ html, body {
 }
 
 .card .additional .user-card {
-    width: 150px;
+    width: 300px;
     height: 100%;
     position: relative;
     float: left;
@@ -91,7 +106,7 @@ html, body {
     width: 300px;
     float: left;
     position: absolute;
-    left: 150px;
+    left: 300px;
     height: 100%;
 }
 
@@ -104,7 +119,7 @@ html, body {
 .card .additional .coords {
     margin: 0 1rem;
     color: #fff;
-    font-size: 1rem;
+    font-size: 35px;
 }
 
 
@@ -128,7 +143,7 @@ html, body {
     width: 60%;
     position: absolute;
     top: 75px;
-    left: 30px;
+    left: 70px;
 }
 
 .card .additional .stats > div {
@@ -147,7 +162,7 @@ html, body {
 }
 
 .card .additional .stats div.value {
-    font-size: 1.5rem;
+    font-size: 50px;
     font-weight: bold;
     line-height: 1.5rem;
 }
@@ -173,6 +188,8 @@ html, body {
     bottom: 1rem;
     right: 1rem;
     font-size: 0.9em;
+    font-family: 'retro', sans-serif;
+    font-size: 30px;
 }
 
 .icons img{
@@ -180,17 +197,17 @@ html, body {
 }
 
 .milk {
-    width: 22%;
+    width: 32%;
 }
 
 .chocolate {
-    width: 28%;
+    width: 38%;
 
 }.eggs {
-    width: 50%;
+    width: 60%;
 
 }.life {
-    width: 33%;
+    width: 43%;
 }
 
 /*--------------- CARD PLAYER --------------*/
