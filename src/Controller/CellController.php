@@ -35,5 +35,4 @@ class CellController extends AbstractController
 
         return $this->twig->render('Cell/index.html.twig', ['cell' => $cell]);
     }
-
 }
