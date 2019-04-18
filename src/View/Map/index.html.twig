@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid my-5">
+    <div class="grid border border-dark">
+        {%  for i  in 0..5 %}
+        <div class="row m-0">
+            {%  for i  in 0..5 %}
+            <div class="box border border-white">
+                <div class="inner"></div></div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

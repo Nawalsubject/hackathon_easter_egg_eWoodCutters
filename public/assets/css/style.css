@@ -328,6 +328,7 @@ video.full_opacity{
     color: white;
 }
 
+
 /*rulespage*/
 
 h1{
@@ -339,4 +340,45 @@ h1{
 
 }
 
+
+.grid {
+    margin: 0 auto;
+    width: 100vw;
+    max-width: 80vh;
+    height: 100vw;
+    max-height: 80vh;
+    font-size: 1rem;
+    background-image: url("../images/backgroundmap/zelda.jpg");
+    border: 1rem solid !important;
+}
+.row {
+    display: flex;
+}
+.box {
+    background: black;
+    filter: blur(1px);
+    opacity: .9;
+    border-color: white;
+
+    color: white;
+    font-weight: bold;
+    flex: 1 0 auto;
+    position: relative;
+}
+.box:after {
+    content: "";
+    float:left;
+    display: block;
+    padding-top: 100%;
+}
+.box .inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
