@@ -224,16 +224,17 @@ video.fullscreen {
 }
 
 .h1_title{
-    margin-top: 100px;
+    margin-top: 150px;
     position: relative;
-    top: 20%;
+    width: 110%;
+    top: 0%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
 }
 
 .btn_play{
     font-family: 'retro', serif;
-    margin-top: 250px;
+    margin-top: 180px;
 }
 
 .btn-item{
