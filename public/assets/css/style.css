@@ -10,8 +10,12 @@ video.fullscreen {
     transform: translate(-50%, -50%);
 }
 
+.h1_title{
+    margin-top: 200px;
+}
+
 .btn_play{
-    margin-top: 500px;
+    margin-top: 300px;
 }
 
 .btn-item{
