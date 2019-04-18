@@ -46,6 +46,27 @@ class Egg
         $this->setValidity($eggParameters['validity']);
     }
 
+//    /**
+//     * PLayerManager constructor.
+//     * @param string $class
+//     */
+//    public function __construct(string $class)
+//    {
+//
+//
+//        $player = new Charac($class);
+//
+//        $this->setId($player['charac_id']);
+//        $this->setName($player['name']);
+//        $this->setSpecies($player['species']);
+//        $this->setGender($player['gender']);
+//        $this->setOrigin($player['origin']);
+//        $this->setPicture($player['picture']);
+//        $this->setKind($player['kind']);
+//        $this->setLife($player['life']);
+//        $this->insert($player);
+//    }
+
     public function loadData() : array
     {
         // Create a client with a base URI
