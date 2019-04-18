@@ -245,6 +245,10 @@ video.fullscreen {
     font-size: 60px;
 }
 
+.btn-item .play_link {
+    text-decoration: none;
+}
+
 .footerBotron {
     background-color: #6c757d;
     margin: 0;
