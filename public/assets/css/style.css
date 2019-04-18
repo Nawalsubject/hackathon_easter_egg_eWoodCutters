@@ -6,6 +6,15 @@ html, body {
     font-family: Abel, Arial, Verdana, sans-serif;
 }
 
+.li_menu{
+    text-decoration: none;
+    list-style: none;
+}
+
+.img_menu{
+    height: 60px;
+}
+
 .center {
     position: absolute;
     top: 50%;
