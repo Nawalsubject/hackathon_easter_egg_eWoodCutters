@@ -233,6 +233,10 @@ video.fullscreen {
     transform: translate(-50%, -50%);
 }
 
+video.full_opacity{
+    opacity: 0.5;
+}
+
 .h1_title{
     margin-top: 200px;
     font-family: 'title', serif;
@@ -276,3 +280,5 @@ video.fullscreen {
     font-size: 1rem;
     color: white;
 }
+
+
