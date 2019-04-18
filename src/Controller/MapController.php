@@ -113,10 +113,4 @@ class MapController extends AbstractController
         $mapManager->delete($id);
         header('Location:/item/index');
     }
-
-    public function generator(){
-
-
-    }
-
 }
