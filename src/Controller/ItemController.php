@@ -30,7 +30,7 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $charac1 = new Charac('', 'caid');
+        $charac1 = new Charac('5cac51240d488f0da6151c31', '');
         echo $charac1->getSpecie();
 
         return $this->twig->render('Item/index.html.twig');

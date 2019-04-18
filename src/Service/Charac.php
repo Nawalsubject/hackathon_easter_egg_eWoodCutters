@@ -50,7 +50,8 @@ class Charac
 
         if (!empty($this->id)) {
             $response = $client->request('GET', $this->id);
-
+            $body = $response->getBody();
+            $charachs = json_decode($body->getContents(), true);
         } else {
             switch ($this->specie) {
                 case 'caid':
@@ -108,9 +109,6 @@ class Charac
         return $this->specie;
     }
 
-    /**
-     * @param mixed $id
-     */
     public function setSpecie($specie): void
     {
         $this->specie = $specie;
@@ -194,15 +192,5 @@ class Charac
     public function setSkills($skills): void
     {
         $this->skills = $skills;
-    }
-
-    public function getRandomCharac(string $specie)
-    {
-
-
-        switch ($specie) {
-            case 'caid':
-
-        }
     }
 }
