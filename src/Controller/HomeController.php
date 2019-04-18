@@ -8,6 +8,8 @@
 
 namespace App\Controller;
 
+use App\Model\ObjectManager;
+
 class HomeController extends AbstractController
 {
 
@@ -21,6 +23,15 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        /*$eggManager = new ObjectManager();
+        $nbEggs = $eggManager->getCountEgg(1);
+
+        $milkManager = new ObjectManager();
+        $nbMilk = $milkManager->getCountMilk(1);
+
+        $chocolateManager = new ObjectManager();
+        $nbChocolates = $chocolateManager->getCountChocolate(1);*/
+
         return $this->twig->render('Home/index.html.twig');
     }
 

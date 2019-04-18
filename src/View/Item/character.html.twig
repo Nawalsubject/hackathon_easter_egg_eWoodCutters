@@ -1,0 +1,19 @@
+<div class="center">
+
+    <div class="card-deck">
+
+        {% for class in classes %}
+        <div class="card">
+            <img class="card-img-top" src="{{ class.picture }}" alt="image de classe">
+            <div class="card-body">
+                <h5 class="card-title">{{ class.name }}</h5>
+                <p class="card-text">Voici les différentes races que vous pourrez trouver dans la catégorie {{ class.name }}</p>
+                <p class="card-text">
+                    <small class="text-muted"></small>
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+</div>
