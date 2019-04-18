@@ -1,9 +1,15 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <h1>Choisissez vos personnages !</h1>
+    <div>
+    <video class="fullscreen full_opacity" autoplay="true" loop
+           src="https://preview.redd.it/zbkvapl8lp601.gif?format=mp4&s=d4393460e03d7c1f117f166f32819e54b793ee1f"></video>
+    </div>
+    <div>
+    <img class="choose_perso_title" src="{{ base_path ~directory }}/assets/images/img_choose_charact.gif">
+    </div>
 
     <div class="center">
-        <div class="card-deck">
+        <div class="card-deck center_card_player">
             {% for class in classes %}
             {% include 'Item/character.html.twig' %}
             {% endfor %}

@@ -2,12 +2,22 @@
 
 {% block content %}
 
-    <div class="container">
-        <h1 class="text-center h1_title">Choc O'Battle</h1>
+    <div class="container justify-content-center mx-auto">
+        <img class="h1_title text-center" src="{{ base_path ~ directory }}/assets/images/h1_title.gif">
         <video class="fullscreen" autoplay="true" loop
                src="https://preview.redd.it/zbkvapl8lp601.gif?format=mp4&s=d4393460e03d7c1f117f166f32819e54b793ee1f"></video>
     </div>
     <div class="text-center btn_play">
-        <button type="button" class="btn btn-item btn-lg"><a class="play_link"href="/home/config">PLAY</a></button>
+        <button type="button" class="btn btn-item btn-lg"><a class="play_link" href="/home/config">PLAY</a></button>
     </div>
+    <div class="text-center text_item">
+        <ul class="text_item">
+            <li><a class="text_accueil" href="/rule">Rules</a></li>
+            <li><a class="text_accueil" href="/home/config">Credits</a></li>
+        </ul>
+    </div>
+    <audio autoplay="true" loop>
+        <source src="{{ base_path ~ directory }}/assets/images/back-in-black.mp3" type="audio/mp3"/>
+        Votre navigateur n'est pas compatible
+    </audio>
 {% endblock %}
