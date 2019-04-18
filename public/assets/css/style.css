@@ -14,7 +14,7 @@ html, body {
 }
 
 .card {
-    width: 800px;
+    width: 600px;
     height: 250px;
     background-color: #fff;
     background: linear-gradient(#f8f8f8, #fff);
@@ -31,7 +31,7 @@ html, body {
 
 .card .additional {
     position: absolute;
-    width: 300px;
+    width: 200px;
     height: 100%;
     transition: width 0.4s;
     overflow: hidden;
@@ -50,6 +50,13 @@ html, body {
     font-size: 30px;
 }
 
+.card_border1{
+    border: 0.5px solid #49a790;
+}
+.card_border2 {
+    border: 0.5px solid #feb81c;
+}
+
 .user_card_size{
     width: 300px;
 }
@@ -65,7 +72,7 @@ html, body {
 }
 
 .card .additional .user-card {
-    width: 300px;
+    width: 200px;
     height: 100%;
     position: relative;
     float: left;
@@ -103,10 +110,10 @@ html, body {
 }
 
 .card .additional .more-info {
-    width: 300px;
+    width: 400px;
     float: left;
     position: absolute;
-    left: 300px;
+    left: 200px;
     height: 100%;
 }
 
