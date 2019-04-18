@@ -205,11 +205,35 @@ html, body {
     width: 1300px;
     height: auto;
 }
-/* -------------- CARD CONFIG ---------------*/
+
+.card_title_player{
+    font-family: 'retro', serif;
+    text-transform: capitalize;
+    font-size: 50px;
+}
+
+.card_title_text{
+    font-family: 'retro', serif;
+    text-transform: capitalize;
+    font-size: 30px;
+}
+
+.card_emplacement{
+    padding-top: 10px;
+}
+
+.center_card_player {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+}
+
+/* --------------  Fin CARD CONFIG ---------------*/
 
 @font-face {
     font-family: "retro";
-    src: url("../fonts/slkscr.ttf");
+    src: url("../fonts/Gamer.ttf");
     font-weight: normal;
     font-style: normal;
 }
@@ -241,6 +265,15 @@ video.full_opacity{
     margin-top: 150px;
     position: relative;
     width: 110%;
+    top: 0%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.choose_perso_title{
+    margin-top: 150px;
+    position: relative;
+    width: 70%;
     top: 0%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -305,5 +338,5 @@ h1{
     text-align: center;
 
 }
->>>>>>> dev
+
 
