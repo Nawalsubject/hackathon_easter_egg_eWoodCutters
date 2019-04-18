@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "retro";
+    src: url("../fonts/slkscr.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
 video.fullscreen {
     position: fixed;
     top: 50%;
@@ -43,3 +50,4 @@ video.fullscreen {
     font-size: 1rem;
     color: white;
 }
+
