@@ -47,8 +47,8 @@ class MapController extends AbstractController
      */
     public function show(int $id)
     {
-        $itemManager = new MapManager();
-        $map = $itemManager->selectOneById($id);
+        $mapManager = new MapManager();
+        $map = $mapManager->selectOneById($id);
 
         return $this->twig->render('Map/show.html.twig', ['map' => $map]);
     }
@@ -89,15 +89,15 @@ class MapController extends AbstractController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new MapManager();
-            $item = [
+            $mapManager = new MapManager();
+            $map = [
                 'title' => $_POST['title'],
             ];
-            $id = $itemManager->insert($item);
+            $id = $mapManager->insert($map);
             header('Location:/map/show/' . $id);
         }
 
-        return $this->twig->render('Item/add.html.twig');
+        return $this->twig->render('Map/add.html.twig');
     }
 
 
@@ -108,8 +108,8 @@ class MapController extends AbstractController
      */
     public function delete(int $id)
     {
-        $itemManager = new MapManager();
-        $itemManager->delete($id);
+        $mapManager = new MapManager();
+        $mapManager->delete($id);
         header('Location:/item/index');
     }
 }
