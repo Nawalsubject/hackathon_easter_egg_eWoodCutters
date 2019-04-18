@@ -2,6 +2,8 @@
 
 namespace App\Service;
 
+use App\Model\MapManager;
+use App\Model\MapBackgroundManager;
 use App\Model\CellManager;
 
 /**
@@ -14,19 +16,53 @@ class Map
      */
     private $width;
     private $height;
+    private $name;
+    private $descr;
 
-    public function __construct(int $width, int $height)
+    public function __construct(int $width, int $height, string $name = "Choco Map", string $descr = "Ma carte")
     {
         $this->setHeight($height);
         $this->setWidth($width);
+        $this->setName($name);
+        $this->setDescr($descr);
+    }
+    /**
+     * @return mixed
+     */
+    public function getDescr()
+    {
+        return $this->descr;
     }
 
+    /**
+     * @param mixed $descr
+     */
+    public function setDescr($descr): void
+    {
+        $this->descr = $descr;
+    }
     /**
      * @return mixed
      */
     public function getWidth()
     {
         return $this->width;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
     }
 
     /**
@@ -61,5 +97,29 @@ class Map
 
     public function generator()
     {
+        $mapBackgroundManager = new MapBackgroundManager();
+        $mapBackgrounds = $mapBackgroundManager->selectAll();
+        shuffle($mapBackgrounds);
+
+        $mapBackground = $mapBackgrounds[0]['picture'];
+
+        $mapManager = new MapManager();
+        //Clean Map DB
+        $mapManager->deleteAll();
+
+        $cellManager = new CellManager();
+        //Clean Cells DB
+        $cellManager->deleteAll();
+
+        $map = [
+            'name' => $this->name,
+            'width' => $this->width,
+            'height' => $this->height,
+            'background' => $mapBackground,
+            'descr' => $this->descr,
+            ];
+
+        $idMap = $mapManager->insert($map);
+        echo $idMap;
     }
 }

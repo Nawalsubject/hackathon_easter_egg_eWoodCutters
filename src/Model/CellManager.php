@@ -70,4 +70,15 @@ class CellManager extends AbstractManager
 
         return $statement->execute();
     }
+
+    /**
+     * @return bool
+     */
+    public function deleteAll():bool
+    {
+        $statement = $this->pdo->prepare("TRUNCATE $this->table");
+        $statement->execute();
+
+        return $statement->execute();
+    }
 }

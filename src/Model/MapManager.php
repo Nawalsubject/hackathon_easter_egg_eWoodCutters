@@ -35,8 +35,13 @@ class MapManager extends AbstractManager
     public function insert(array $map): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
-        $statement->bindValue('title', $map['title'], \PDO::PARAM_STR);
+        $statement = $this->pdo->prepare("INSERT INTO $this->table 
+            VALUES (NULL, :name, :width,:height,:background,:descr)");
+        $statement->bindValue('name', $map['name'], \PDO::PARAM_STR);
+        $statement->bindValue('width', $map['width'], \PDO::PARAM_INT);
+        $statement->bindValue('height', $map['height'], \PDO::PARAM_INT);
+        $statement->bindValue('background', $map['background'], \PDO::PARAM_STR);
+        $statement->bindValue('descr', $map['descr'], \PDO::PARAM_STR);
 
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
@@ -67,6 +72,17 @@ class MapManager extends AbstractManager
         $statement = $this->pdo->prepare("UPDATE $this->table SET `title` = :title WHERE id=:id");
         $statement->bindValue('id', $map['id'], \PDO::PARAM_INT);
         $statement->bindValue('title', $map['title'], \PDO::PARAM_STR);
+
+        return $statement->execute();
+    }
+
+    /**
+     * @return bool
+     */
+    public function deleteAll():bool
+    {
+        $statement = $this->pdo->prepare("TRUNCATE $this->table");
+        $statement->execute();
 
         return $statement->execute();
     }

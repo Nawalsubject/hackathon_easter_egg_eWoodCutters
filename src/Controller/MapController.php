@@ -10,6 +10,7 @@
 namespace App\Controller;
 
 use App\Model\MapManager;
+use App\Service\Map;
 
 /**
  * Class ItemController
@@ -29,11 +30,10 @@ class MapController extends AbstractController
      */
     public function index()
     {
-        $mapManager = new MapManager();
+        $map = new Map(10, 25, 'TOTO');
+        $map->generator();
 
-        $map = $mapManager->selectAll();
-
-        return $this->twig->render('Map/index.html.twig', ['map' => $map]);
+        return 'ok';
     }
 
 
