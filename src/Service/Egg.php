@@ -20,6 +20,16 @@ class Egg
     private $power;
     private $validity;
 
+    const S = 0;
+    const M = 1;
+    const L = 2;
+    const XL = 3;
+
+    const BASE = 5;
+    const MOYEN = 10;
+    const SUPERIEUR = 20;
+    const LEGENDAIRE = 40;
+
     public function __contruct(string $id = '')
     {
         $this->setId($id);
@@ -218,7 +228,40 @@ class Egg
 
     public function getAttackPoint() : int
     {
+        $degat=0;
 
-        return 0;
+        switch ($this->getRarity()) {
+            case 'junk' or 'basic':
+                $degat += 5;
+                break;
+            case 'fine' or 'ascended':
+                $degat += 10;
+                break;
+            case 'exotic' or 'rare':
+                $degat += 20;
+                break;
+            case 'legendary':
+                $degat += 40;
+                break;
+            default:
+                $degat += 0;
+                break;
+        }
+
+        switch ($this->getCaliber()) {
+            case 'XS' or 'S':
+                $degat += self::S;
+                break;
+            case 'M':
+                $degat += self::M;
+                break;
+            case 'L':
+                $degat += self::L;
+                break;
+            case 'XL' or '2XL' or '3XL':
+                $degat += self::XL;
+                break;
+        }
+        return $degat;
     }
 }
