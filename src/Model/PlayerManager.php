@@ -28,7 +28,7 @@ class PlayerManager extends AbstractManager
 
     /**
      * @param array $player
-     * @return int
+     *
      */
     public function insert(array $player)
     {
