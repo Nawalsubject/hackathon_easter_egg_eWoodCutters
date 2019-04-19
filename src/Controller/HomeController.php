@@ -91,4 +91,9 @@ class HomeController extends AbstractController
         $player2->init($classSelected[$kind - 1], 12, 12);
         header('Location: ../../Map/index');
     }
+
+    public function win()
+    {
+        return $this->twig->render('Home/win.html.twig');
+    }
 }
