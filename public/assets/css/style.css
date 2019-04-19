@@ -264,6 +264,10 @@ table{
     background-image: url("/assets/images/dpad.png");
 }
 
+.btn-yellow{
+    background-color: #feb81c;
+}
+
 .btn-dark{
     width: 90px;
     height: 90px;
