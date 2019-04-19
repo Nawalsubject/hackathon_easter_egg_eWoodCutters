@@ -7,7 +7,7 @@
     <div>
     <img class="choose_perso_title" src="{{ base_path ~directory }}/assets/images/img_choose_charact.gif">
     </div>
-
+<h1>{% if secondChoice == true %}Player 2{% else %}Player1{% endif %}</h1>
     <div class="center">
         <div class="card-deck center_card_player">
             {% for class in classes %}
