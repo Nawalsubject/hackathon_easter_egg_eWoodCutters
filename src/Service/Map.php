@@ -21,6 +21,7 @@ class Map
     private $nbRandomEggs;
     private $nbRandomMilk;
     private $nbRandomChoco;
+    private $nbRandomMonster;
 
     public function __construct(
         int $width,
@@ -28,6 +29,7 @@ class Map
         int $nbRandomEggs = 0,
         int $nbRandomMilk = 0,
         int $nbRandomChoco = 0,
+        int $nbRandomMonster = 0,
         string $name = "Choco Map",
         string $descr = "Ma carte"
     ) {
@@ -38,7 +40,26 @@ class Map
         $this->setNbRandomEggs($nbRandomEggs);
         $this->setNbRandomMilk($nbRandomMilk);
         $this->setNbRandomChoco($nbRandomChoco);
+        $this->setNbRandomMonster($nbRandomMonster);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNbRandomMonster()
+    {
+        return $this->nbRandomMonster;
+    }
+
+    /**
+     * @param mixed $nbRandomMonster
+     */
+    public function setNbRandomMonster($nbRandomMonster): void
+    {
+        $this->nbRandomMonster = $nbRandomMonster;
+    }
+
+
     /**
      * @return mixed
      */
@@ -186,7 +207,7 @@ class Map
         $this->fillMapContent();
     }
 
-    public function generateCells($mapId) : bool
+    private function generateCells($mapId) : bool
     {
         $cellManager = new CellManager();
         for ($col = 1; $col <= $this->width; $col++) {
@@ -203,13 +224,38 @@ class Map
         return true;
     }
 
-    public function fillMapContent() : bool
+    private function fillMapContent() : bool
     {
         $cellManager = new CellManager();
 
+        // Ajout du Super Egg
+        $xpos = rand(1, $this->width);
+        $ypos = rand(1, $this->height);
+
+        $cell=$cellManager->selectOneByXY($xpos, $ypos);
+        $cellContent = [
+            'id' => $cell['id'],
+            'content_type_id' =>5
+        ];
+        $cellManager->updateContent($cellContent);
+
+        //Add random placement Monster
+        for ($iMonster = 0; $iMonster < $this->nbRandomMonster; $iMonster++) {
+            $xpos = rand(1, $this->width);
+            $ypos = rand(1, $this->height);
+
+            $cell=$cellManager->selectOneByXY($xpos, $ypos);
+            $cellContent = [
+                'id' => $cell['id'],
+                'content_type_id' =>4,
+            ];
+
+            $cellManager->updateContent($cellContent);
+        }
+
+
         //Add random placement eggs
         for ($iEgg = 0; $iEgg < $this->nbRandomEggs; $iEgg++) {
-            $egg = new Egg();
             $xpos = rand(1, $this->width);
             $ypos = rand(1, $this->height);
 
@@ -250,5 +296,18 @@ class Map
             $cellManager->updateContent($cellContent);
         }
         return true;
+    }
+
+/*    public function getCellContentInPos(int $x, int $y) :array
+    {
+
+    }*/
+
+    public function getAllCells(): array
+    {
+        $cellManager=new CellManager();
+        $mapCells= $cellManager->selectAll();
+
+        return $mapCells;
     }
 }

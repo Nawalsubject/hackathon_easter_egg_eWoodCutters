@@ -31,12 +31,15 @@ class MapController extends AbstractController
      */
     public function index()
     {
-        $map = new Map(12, 12, 2, 2, 3);
+        $map = new Map(12, 12, 3, 6, 4, 3);
+        // A FAIRE : TRUNCATE TABLE PLAYER
         $map->generator();
-/*        $egg = new Egg();
-        $egg->loadData();*/
-        //return 'Genérateur Map OK';
-        return $this->twig->render('Map/index.html.twig', ['map' => $map]);
+        $mapCells = $map->getAllCells();
+
+        return $this->twig->render('Map/index.html.twig', [
+            'map' => $map,
+            'cells' => $mapCells
+        ]);
     }
 
 
