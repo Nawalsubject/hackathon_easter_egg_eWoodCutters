@@ -415,6 +415,12 @@ h1{
 }
 
 
+
+/************** GESTION DE LA MAP *****************************/
+
+/************************* BASE DE LA MAP *********************/
+/************ ATTENTION AUX CHANGEMENTS!! **********************/
+/*********** SYLVAIN FAIT PAS DE LA MERDE *********************/
 .grid {
     margin: 0 auto;
     width: 100vw;
@@ -455,4 +461,33 @@ h1{
     align-items: center;
     justify-content: center;
 }
+/*********************************************************/
 
+.map-cell-reveal{
+    opacity: 0 !important;
+    filter: none;
+}
+
+.map-superegg{
+    background: green;
+}
+.map-monster{
+    background: red;
+}
+.map-milk{
+    background: darkgrey;
+}
+.map-choco{
+    background: saddlebrown;
+}
+.map-egg{
+    background: deeppink;
+}
+
+.map-player1{
+    background: orange;
+}
+
+.map-player2{
+    background: blue;
+}

@@ -1,5 +1,6 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
+
     {% for player in players %}
         {% include 'Item/_playerCard.html.twig' %}
     {% endfor %}
@@ -7,13 +8,22 @@
         <div class="controller">
             <img src="/assets/images/dpad.png">
         </div>
+    {% set count = 0 %}
         <div class="grid border border-dark">
-            {% for i  in 0..5 %}
+            {% for i  in 1..map.height %}
                 <div class="row m-0">
-                    {% for i  in 0..5 %}
-                        <div class="box border border-white">
-                            <div class="inner"></div>
+                    {% for i  in 1..map.width %}
+                        <div class="box border border-white {{ cells[count].player1_reveal == 1 ? 'map-cell-reveal' : '' }}">
+                            <div class=" inner {{ cells[count].content_type_id == 1 ? 'map-egg' }}
+{{ cells[count].content_type_id == 2 ? 'map-milk' }}
+{{ cells[count].content_type_id == 3 ? 'map-choco' }}
+{{ cells[count].content_type_id == 4 ? 'map-monster' }}
+{{ cells[count].content_type_id == 5 ? 'map-superegg' }}
+
+">
+                            </div>
                         </div>
+                        {% set count = count + 1 %}
                     {% endfor %}
                 </div>
             {% endfor %}

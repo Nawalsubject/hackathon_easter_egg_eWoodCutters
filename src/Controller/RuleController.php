@@ -15,6 +15,6 @@ class RuleController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Rules/index.html.twig');
+        return $this->twig->render('Rule/index.html.twig');
     }
 }
