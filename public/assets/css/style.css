@@ -588,7 +588,8 @@ h1{
     background-size:100% 100%;
 }
 .card_battle_final{
-    margin-top: 210px;
+    margin-top: 810px;
+    z-index: 1000;
 }
 
 .h1_endfile{
