@@ -16,6 +16,7 @@
                     {% include 'Item/_playerCard.html.twig' %}
                 {% endfor %}
                 <div class="row text-center">
+                    {% if content==false %}
                     <div class="controller gamepad">
 
                         <form action="show" method="post">
@@ -43,25 +44,44 @@
 
 
                             </table>
+
+                            <input type="hidden" name="player_next" value="{{ player_id }}"/>
                         </form>
 
                     </div>
+                    {% endif %}
+                    {% if content==true %}
+                        <div class="controller gamepad">
+
+                            <form action="index" method="post">
+                                <div class="text-center btn_play">
+                                    <button type="submit" class="btn btn-item">JOUEUR SUIVANT</button>
+                                </div>
+                                <input type="hidden" name="player_next" value="{{ player_id }}"/>
+                            </form>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
             <!-- Début tableau ----------------->
             <div class="col-6">
                 {% set count = 0 %}
                 <div class="grid border border-dark grid_margin_top">
-                    {% for i  in 1..map.height %}
+                    {% for x  in 1..map.height %}
                         <div class="row m-0">
-                            {% for i  in 1..map.width %}
+                            {% for y  in 1..map.width %}
                                 {% set reveal = 0 %}
                                 {% if player_id == 1 %}
                                      {% set reveal = cells[count].player1_reveal %}
                                 {% else %}
                                     {% set reveal = cells[count].player2_reveal %}
                                 {% endif %}
-                                <div class="box border border-white player_locate {{ reveal == 1 ? 'map-cell-reveal' : '' }}">
+                                <div class="box border border-white
+                                {% if  players[player_id-1].x_init == x and players[player_id-1].y_init == y %}
+                                    player_locate
+                                {% endif %}
+                                {{ reveal == 1 ? 'map-cell-reveal' : '' }}">
+
                                     <div class=" inner
 {{ cells[count].content_type_id == 1 ? 'map-egg' }}
 {{ cells[count].content_type_id == 2 ? 'map-milk' }}
@@ -75,6 +95,12 @@
        <img src="{{ cells[count].content_type_id == 4 and reveal == 1 ? '/assets/images/monster2.png' }}">
          <img src="{{ cells[count].content_type_id == 1 and reveal == 1 ? '/assets/images/normal_egg2.png' }}">
 
+                    {% if  players[0].x_init == x and players[0].y_init == y %}
+                            <img src="/assets/images/player1.png">
+                    {% endif %}
+                    {% if  players[1].x_init == x and players[1].y_init == y %}
+                        <img src="/assets/images/player2.png">
+                    {% endif %}
                                     </div>
                                 </div>
                                 {% set count = count + 1 %}
