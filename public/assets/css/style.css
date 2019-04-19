@@ -83,7 +83,7 @@ h1 {
 }
 
 .card_border1{
-    border: 0.5px solid #49a790;
+    border: 0.5px solid #c62b29;
 }
 .card_border2 {
     border: 0.5px solid #feb81c;
@@ -530,8 +530,85 @@ h1{
     background: blue;
 }
 
-.player_locate {
-    border: 2px solid #c62b29;
+
+.card-player-light {
+    opacity: .5;
+}
+.card-player-playin {
+    border-width: 5px;
+    border-color: black;
 }
 
+.player_locate {
+    border: 2px solid #c62b29;
+
+}
+
+
+
+.btn-item-next{
+    background-color: blue;
+    padding: 10px 50px;
+    border-radius: 20px;
+    color: crimson;
+    font-size: 40px;
+}
+
+.end_file {
+    background-image: url("/assets/images/end_img_file.gif");
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+}
+.card_battle_final{
+    margin-top: 210px;
+}
+
+.h1_endfile{
+    padding-top: 150px;
+    font-size: 150px;
+    color: #1d5ea0;
+    -webkit-animation: color-change 1.5s infinite;
+    -moz-animation: color-change 1.5s infinite;
+    -o-animation: color-change 1.5s infinite;
+    -ms-animation: color-change 1.5s infinite;
+    animation: color-change 1.5s infinite;
+}
+
+@-webkit-keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}
+@-moz-keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}
+
+@-ms-keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}
+
+@-o-keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}
+
+@keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}
+
+.btn-item-next .play_link {
+    text-decoration: none;
+}
 
