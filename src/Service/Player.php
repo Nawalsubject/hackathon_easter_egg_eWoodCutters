@@ -36,8 +36,8 @@ class Player
             $this->setPicture($playerCharacteristics['picture']);
             $this->setKind($playerCharacteristics['kind']);
             $this->setLife($playerCharacteristics['life']);
-            $this->setX($playerCharacteristics['X_init']);
-            $this->setY($playerCharacteristics['Y_init']);
+            $this->setX($playerCharacteristics['x_init']);
+            $this->setY($playerCharacteristics['y_init']);
         }
     }
 
@@ -55,6 +55,8 @@ class Player
         if ($this->kind == 'vegan') {
             $this->life += 20;
         }
+
+
         $this->setX($xinit);
         $this->setY($yinit);
 
@@ -65,25 +67,36 @@ class Player
     public function goLeft() : bool
     {
         $playerManager = new PlayerManager();
-        $playerManager->updateXY($this->getX()-1, $this->getY(), $this->getId());
+        if ($this->getX()-1 > 0) {
+            $playerManager->updateXY($this->getX()-1, $this->getY(), $this->getId());
+        }
+
         return true;
     }
     public function goRight() : bool
     {
         $playerManager = new PlayerManager();
-        $playerManager->updateXY($this->getX()+1, $this->getY(), $this->getId());
+        if ($this->getX()+1 < 12) {
+            $playerManager->updateXY($this->getX()+1, $this->getY(), $this->getId());
+        }
+
         return true;
     }
     public function goUp() : bool
     {
         $playerManager = new PlayerManager();
-        $playerManager->updateXY($this->getX(), $this->getY()+1, $this->getId());
+        if ($this->$this->getY()-1 > 0) {
+            $playerManager->updateXY($this->getX(), $this->getY()-1, $this->getId());
+        }
+
         return true;
     }
     public function goDown() : bool
     {
         $playerManager = new PlayerManager();
-        $playerManager->updateXY($this->getX()-1, $this->getY()-1, $this->getId());
+        if ($this->$this->getY()+1 < 12) {
+            $playerManager->updateXY($this->getX(), $this->getY()+1, $this->getId());
+        }
         return true;
     }
 

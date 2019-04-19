@@ -54,6 +54,7 @@ class MapController extends AbstractController
             'map' => $map,
             'cells' => $mapCells,
             'players' => $players,
+            'player_id'=> 2,
         'player1'=> ['milk' => $milkPlayer1, 'chocolate' => $chocolatePlayer1, 'egg' => $eggPlayer1],
         'player2'=> ['milk' => $milkPlayer2, 'chocolate' => $chocolatePlayer2, 'egg' => $eggPlayer2]
         ]);
