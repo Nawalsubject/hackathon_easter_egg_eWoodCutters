@@ -1,54 +1,53 @@
-<div class="container-fluid container_padding">
-    <div class="card card_border{{ player.id }}">
-        <div class="additional additional{{ player.id }}">
-            <div class="user-card user_card_size">
-                <div class="level center">
-                    {{ player.charac_id }}
-                </div>
-                <div class="class center">
-                    {{ player.kind }}
-                    <img src="{{ player.class }}">
-                </div>
-                <img class="user-picture" src="{{ player.picture }}" alt="image du joueur">
+<div class="card card_border{{ player.id }}">
+    <div class="additional additional{{ player.id }}">
+        <div class="user-card user_card_size">
+            <div class="level center">
+                {{ player.charac_id }}
             </div>
-            <div class="more-info">
-                <h2>{{ player.name }}</h2>
-                <div class="coords">
-                    <span>Espèces : {{ player.species }}</span>
-                    <span>Genre : {{ player.gender }}</span>
-                </div>
-                <div class="coords">
-                    <span>Origine : {{ player.origin }}</span>
-                    <span>Classe : {{ player.class }}</span>
-                </div>
-                <div class="stats icons">
-                    <div>
-                        <div class="title"><img class="milk" src="/assets/images/milk.png"></div>
-                        <i class="fa fa-milk"></i>
-                        <div class="value">{{ player.milk }}1</div>
-                    </div>
-                    <div>
-                        <div class="title"><img class="chocolate" src="/assets/images/tablette_choc.png"></div>
-                        <i class="fa fa-chocolate"></i>
-                        <div class="value">{{ player.chocolate }}3</div>
-                    </div>
-                    <div>
-                        <div class="title"><img class="eggs" src="/assets/images/eggs2.png"></div>
-                        <i class="fa fa-eggs"></i>
-                        <div class="value">{{ player.eggs }}5</div>
-                    </div>
-                    <div>
-                        <div class="title"><img class="life" src="/assets/images/heart.png"></div>
-                        <i class="fa fa-life"></i>
-                        <div class="value">{{ player.life }}100</div>
-                    </div>
-                </div>
+            <div class="class center">
+                {{ player.kind }}
+                <img src="{{ player.class }}">
             </div>
+            <img class="user-picture" src="{{ player.picture }}" alt="image du joueur">
         </div>
-        <div class="general">
-            <h2>{{ player.name }}</h2>
-            <p>{{ player.description }}</p>
-            <span class="more">+ d'infos</span>
+        <div class="more-info">
+            <h2 style="color: black">{{ player.name }}</h2>
+            <div class="coords">
+                <span style="color: black">Espèces : {{ player.species }}</span>
+                <span style="color: black">Genre : {{ player.gender }}</span>
+            </div>
+            <div class="coords">
+                <span style="color: black">Origine : {{ player.origin }}</span>
+                <span style="color: black">Classe : {{ player.class }}</span>
+            </div>
+            <div class="stats icons">
+                <div>
+                    <div class="title"><img class="milk" src="/assets/images/milk.png"></div>
+                    <i class="fa fa-milk"></i>
+                    <div class="value">{{ player.milk }}1</div>
+                </div>
+                <div>
+                    <div class="title"><img class="chocolate" src="/assets/images/tablette_choc.png"></div>
+                    <i class="fa fa-chocolate"></i>
+                    <div class="value">{{ player.chocolate }}3</div>
+                </div>
+                <div>
+                    <div class="title"><img class="eggs" src="/assets/images/eggs2.png"></div>
+                    <i class="fa fa-eggs"></i>
+                    <div class="value">{{ player.eggs }}5</div>
+                </div>
+                <div>
+                    <div class="title"><img class="life" src="/assets/images/heart.png"></div>
+                    <i class="fa fa-life"></i>
+                    <div class="value">{{ player.life }}100</div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="general">
+        <h2>{{ player.name }}</h2>
+        <p>{{ player.description }}</p>
+        <span class="more">+ d'infos</span>
+    </div>
 </div>
+

@@ -1,32 +1,58 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
+    <!-- Background + sound -->
+    <div class="container justify-content-center mx-auto">
 
-    {% for player in players %}
-        {% include 'Item/_playerCard.html.twig' %}
-    {% endfor %}
-    <div class="container-fluid my-5">
-        <div class="controller">
-            <img src="/assets/images/dpad.png">
-        </div>
-    {% set count = 0 %}
-        <div class="grid border border-dark">
-            {% for i  in 1..map.height %}
-                <div class="row m-0">
-                    {% for i  in 1..map.width %}
-                        <div class="box border border-white {{ cells[count].player1_reveal == 1 ? 'map-cell-reveal' : '' }}">
-                            <div class=" inner {{ cells[count].content_type_id == 1 ? 'map-egg' }}
+        <video class="fullscreen" autoplay="true" loop
+               src="https://preview.redd.it/zbkvapl8lp601.gif?format=mp4&s=d4393460e03d7c1f117f166f32819e54b793ee1f"></video>
+    </div>
+    <audio autoplay="true" loop>
+        <source src="{{ base_path ~ directory }}/assets/images/back-in-black.mp3" type="audio/mp3"/>
+        Votre navigateur n'est pas compatible
+    </audio>
+    <!-- fin background + sound -->
+
+    <div class="container-fluid container_padding mt-2">
+        <div class="row">
+            <div class="col-6">
+                {% for player in players %}
+                    {% include 'Item/_playerCard.html.twig' %}
+                {% endfor %}
+                <div class="row text-center">
+                    <div class="controller gamepad">
+                        <img src="/assets/images/dpad.png">
+                    </div>
+                </div>
+            </div>
+            <!-- Début tableau ----------------->
+            <div class="col-6">
+                {% set count = 0 %}
+                <div class="grid border border-dark grid_margin_top">
+                    {% for i  in 1..map.height %}
+                        <div class="row m-0">
+                            {% for i  in 1..map.width %}
+                                <div class="box border border-white {{ cells[count].player1_reveal == 1 ? 'map-cell-reveal' : '' }}">
+                                    <div class=" inner {{ cells[count].content_type_id == 1 ? 'map-egg' }}
 {{ cells[count].content_type_id == 2 ? 'map-milk' }}
 {{ cells[count].content_type_id == 3 ? 'map-choco' }}
 {{ cells[count].content_type_id == 4 ? 'map-monster' }}
 {{ cells[count].content_type_id == 5 ? 'map-superegg' }}
 
-">
-                            </div>
+"><img src="{{ cells[count].content_type_id == 5 ? '/assets/images/easteregg.png' }}">
+   <img src="{{ cells[count].content_type_id == 3 ? '/assets/images/choco_tablet.png' }}">
+     <img src="{{ cells[count].content_type_id == 2 ? '/assets/images/lait.png' }}">
+       <img src="{{ cells[count].content_type_id == 4 ? '/assets/images/monster.png' }}">
+         <img src="{{ cells[count].content_type_id == 1 ? '/assets/images/normal_egg.png' }}">
+                                    </div>
+                                </div>
+                                {% set count = count + 1 %}
+                            {% endfor %}
                         </div>
-                        {% set count = count + 1 %}
                     {% endfor %}
                 </div>
-            {% endfor %}
+                <!-- fin tableau -->
+            </div>
         </div>
     </div>
+
 {% endblock %}

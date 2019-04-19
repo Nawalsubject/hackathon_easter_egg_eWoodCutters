@@ -37,7 +37,7 @@ html, body {
 
 .card {
     width: 600px;
-    height: 250px;
+    height: 200px;
     background-color: #fff;
     background: linear-gradient(#f8f8f8, #fff);
     box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
@@ -49,6 +49,7 @@ html, body {
 
 .card h2 {
     text-align: center;
+    font-family: 'retro', sans-serif;
 }
 
 .card .additional {
@@ -61,7 +62,7 @@ html, body {
 }
 
 .card .additional1 {
-    background: #49a790;
+    background: #c62b29;
     font-family: 'retro', sans-serif;
     font-size: 30px;
 }
@@ -148,7 +149,9 @@ html, body {
 .card .additional .coords {
     margin: 0 1rem;
     color: #fff;
-    font-size: 35px;
+    font-size: 25px;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 
@@ -169,10 +172,10 @@ html, body {
 
 .user-picture{
     border-radius :50%;
-    width: 60%;
+    width: 45%;
     position: absolute;
-    top: 75px;
-    left: 70px;
+    top: 50px;
+    left: 55px;
 }
 
 .card .additional .stats > div {
@@ -191,7 +194,7 @@ html, body {
 }
 
 .card .additional .stats div.value {
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
     line-height: 1.5rem;
 }
@@ -209,6 +212,7 @@ html, body {
     z-index: 1;
     box-sizing: border-box;
     padding: 1rem;
+    padding-left: 0;
     padding-top: 0;
 }
 
@@ -221,26 +225,31 @@ html, body {
 }
 
 .icons img{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .milk {
-    width: 32%;
+    width: 22%;
 }
 
 .chocolate {
-    width: 38%;
+    width: 28%;
 
 }.eggs {
-    width: 60%;
+    width: 50%;
 
 }.life {
-    width: 43%;
+    width: 36%;
 }
 
 .container_padding{
     padding-left: 0;
     padding-right: 0;
+}
+
+.gamepad{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*--------------- CARD PLAYER --------------*/
@@ -411,7 +420,6 @@ h1{
 
 .table{
     text-align: center;
-
 }
 
 
@@ -429,13 +437,15 @@ h1{
     max-height: 80vh;
     font-size: 1rem;
     background-image: url("../images/backgroundmap/zelda.jpg");
-    border: 1rem solid !important;
+    -webkit-box-shadow: 0px 0px 30px 12px rgba(0,0,0,0.80);
+    -moz-box-shadow: 0px 0px 30px 12px rgba(0,0,0,0.80);
+    box-shadow: 0px 0px 30px 12px rgba(0,0,0,0.80);
 }
 .row {
     display: flex;
 }
 .box {
-    background: black;
+    background: #49a790;
     filter: blur(1px);
     opacity: .9;
     border-color: white;
@@ -463,25 +473,22 @@ h1{
 }
 /*********************************************************/
 
+.grid_margin_top{
+    margin-top: 1.5em;
+}
+
 .map-cell-reveal{
     opacity: 0 !important;
     filter: none;
 }
 
-.map-superegg{
-    background: green;
-}
 .map-monster{
-    background: red;
+    background: white;
 }
+
 .map-milk{
-    background: darkgrey;
-}
-.map-choco{
-    background: saddlebrown;
-}
-.map-egg{
-    background: deeppink;
+    width: 75%;
+    margin-left:10%;
 }
 
 .map-player1{
