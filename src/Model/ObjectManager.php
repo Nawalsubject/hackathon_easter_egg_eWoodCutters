@@ -30,6 +30,15 @@ class ObjectManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
+    public function getBag(int $player_id)
+    {
+        $statement = $this->pdo->prepare("SELECT *  FROM $this->table 
+        WHERE  player_id=$player_id ORDER BY content_type_id");
+
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
 
     public function getCountEgg(int $player_id)
     {
