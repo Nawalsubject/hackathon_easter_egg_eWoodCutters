@@ -56,6 +56,24 @@ h1 {
     margin: 1.5rem;
 }
 
+
+.card1 {
+    background: #feb81c;
+}
+.card2 {
+    background: #c62b29;
+}
+.card3 {
+    background: #49a790;
+}
+.card4 {
+    background: #1d5ea0;
+}
+
+
+
+
+
 .card h2 {
     text-align: center;
     font-family: 'retro', sans-serif;
@@ -269,7 +287,7 @@ table{
 }
 
 .btn-yellow{
-    background-color: #feb81c;
+    background-color: #ff0079;
 }
 
 .btn-dark{
