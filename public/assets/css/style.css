@@ -6,6 +6,11 @@ html, body {
     font-family: Abel, Arial, Verdana, sans-serif;
 }
 
+h1 {
+    font-family: 'retro' , sans-serif;
+    font-size: 5vw;
+}
+
 .li_menu{
     text-decoration: none;
     list-style: none;
@@ -173,8 +178,9 @@ html, body {
 .user-picture{
     border-radius :50%;
     width: 45%;
+    max-height: 45%;
     position: absolute;
-    top: 50px;
+    top: 55px;
     left: 55px;
 }
 
@@ -248,8 +254,34 @@ html, body {
 }
 
 .gamepad{
+    position: relative;
     margin-left: auto;
     margin-right: auto;
+}
+
+table{
+    z-index: 100;
+    background-image: url("/assets/images/dpad.png");
+}
+
+.btn-yellow{
+    background-color: #feb81c;
+}
+
+.btn-dark{
+    width: 90px;
+    height: 90px;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-dark:hover{
+    background-color: #2e2dfa;
+    opacity: 0.4;
+}
+
+table tr{
+    width: 100px;
 }
 
 .logo-player{
@@ -494,12 +526,17 @@ h1{
     background: blue;
 }
 
+
 .card-player-light {
     opacity: .5;
 }
 .card-player-playin {
     border-width: 5px;
     border-color: black;
+
+.player_locate {
+    border: 2px solid #c62b29;
+
 }
 
 
