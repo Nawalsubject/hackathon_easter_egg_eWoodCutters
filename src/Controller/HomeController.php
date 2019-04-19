@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-use App\Model\PLayerManager;
+use App\Model\PlayerManager;
 
 class HomeController extends AbstractController
 {
@@ -39,17 +39,32 @@ class HomeController extends AbstractController
     {
         /* tableau pour test */
 
-        $class= [
-            ['name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
-                'races' =>[ 'race1', 'race2', 'race3']],
-            ['name' => 'Les Intellos', 'picture' => '/assets/images/intello.png',
+        $class = [
+            ['id' => 1, 'name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
+                'races' => ['race1', 'race2', 'race3']],
+            ['id' => 2, 'name' => 'Les Intellos', 'picture' => '/assets/images/intello.png',
                 ['races' => 'race YO', 'race POUET']],
-            ['name' => 'Les Sportifs', 'picture' => '/assets/images/sportif.jpg',
-            'description' => 'description ... '],
-            ['name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
+            ['id' => 3, 'name' => 'Les Sportifs', 'picture' => '/assets/images/sportif.jpg',
+                'description' => 'description ... '],
+            ['id' => 4, 'name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
                 'description' => 'description ... ']
         ];
         /* tableau pour test */
-        return $this->twig->render('Home/config.html.twig', ['classes'=> $class]);
+
+
+        return $this->twig->render('Home/config.html.twig', ['classes' => $class]);
+
+
+    }
+
+    public function choice(int $class , $player = 1)
+    {
+        if ($player == 1) {
+            $player1 = new PlayerManager($class);
+            return $this->twig->render('Home/config.html.twig', ['classes' => $class, 'secondChoice' => true]);
+        } else {
+            $player2 = new PlayerManager($class);
+            return $this->twig->render('Map/index.html.twig');
+        }
     }
 }

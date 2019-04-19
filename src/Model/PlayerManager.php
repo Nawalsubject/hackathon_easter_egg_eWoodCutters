@@ -15,7 +15,7 @@ class PlayerManager extends AbstractManager
     /**
      *  Initializes this class.
      */
-    public function __construct()
+    public function __construct($id)
     {
         parent::__construct(self::TABLE);
     }

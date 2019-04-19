@@ -11,5 +11,8 @@
             {% endfor %}
         </ul>
         <p class="card-text card_title_text">{{ class.bonus }}</p>
+        <form action={% if secondChoice == true %}"/home/choice/{{ class.id }}/2"{% endif %}/home/choice/{{ class.id }}" method="post">
+            <button class="btn btn-primary">Choice</button>
+        </form>
     </div>
 </div>
