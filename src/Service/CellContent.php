@@ -132,22 +132,14 @@ class CellContent
         $objectManager = new ObjectManager();
         $objects = $objectManager->selectAllPlayerObjects($this->player_id);
         shuffle($objects);
-        $id = $objects[0]['id'];
-        $objectManager->delete($id);
+        if (!$objects) {
+            $id = $objects[0]['id'];
+            $objectManager->delete($id);
+        }
     }
 
     private function win()
     {
-        $loader = new FilesystemLoader(APP_VIEW_PATH);
-        $this->twig = new Environment(
-            $loader,
-            [
-                'cache' => !APP_DEV,
-                'debug' => APP_DEV,
-            ]
-        );
-        $this->twig->addExtension(new DebugExtension());
-
-        return $this->twig->render('Home/config.html.twig', ['win' => true]);
+        header('Location: win');
     }
 }

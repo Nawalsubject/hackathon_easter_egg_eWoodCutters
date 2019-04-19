@@ -139,4 +139,14 @@ class MapController extends AbstractController
             '$content_id' => $content_id
         ]);
     }
+
+    /**
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function win()
+    {
+        return $this->twig->render('Map/win.html.twig');
+    }
 }
