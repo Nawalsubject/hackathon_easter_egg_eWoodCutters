@@ -25,14 +25,6 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        /*$eggManager = new ObjectManager();
-        $nbEggs = $eggManager->getCountEgg(1);
-
-        $milkManager = new ObjectManager();
-        $nbMilk = $milkManager->getCountMilk(1);
-
-        $chocolateManager = new ObjectManager();
-        $nbChocolates = $chocolateManager->getCountChocolate(1);*/
 
         return $this->twig->render('Home/index.html.twig');
     }
@@ -64,7 +56,7 @@ class HomeController extends AbstractController
     {
         if ($player == 1) {
             $player1 = new Player(1);
-            $player1->init($kind, 0, 0);
+            $player1->init($kind, 1, 1);
             return $this->twig->render('Home/config.html.twig', ['classes' => $kind, 'secondChoice' => true]);
         } else {
             $player2 = new Player(2);

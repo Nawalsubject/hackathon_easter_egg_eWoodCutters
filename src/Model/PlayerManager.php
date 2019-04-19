@@ -3,7 +3,7 @@
 namespace App\Model;
 
 use App\Service\Charac;
-
+use App\Service\Player;
 
 /**
  * Class PlayerManager
@@ -22,27 +22,59 @@ class PlayerManager extends AbstractManager
     }
 
     /**
-     * @param array $player
-     *
+     * @param Player $player
+     * @return int
      */
-    public function insert(array $player)
+    public function insert(Player $player) : int
     {
-
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO $this->table
- (`charac_id`,`name`,`species`, `gender`, `origin`, `picture`, `kind`, `life`) 
-        VALUES (:charac_id, :name, :species, :gender, :origin, :picture, :kind, :life)");
+        (`id`, `charac_id`,`name`,`species`, `gender`, `origin`, `picture`, `kind`, `life`) 
+        VALUES (:charac_id, :name, :species, :gender, :origin, :picture, :kind, :life, :x_init,:y_init)");
 
-        $statement->bindValue('charac_id', $player['charac_id'], \PDO::PARAM_INT);
-        $statement->bindValue('name', $player['name'], \PDO::PARAM_INT);
-        $statement->bindValue('species', $player['species'], \PDO::PARAM_INT);
-        $statement->bindValue('gender', $player['gender'], \PDO::PARAM_INT);
-        $statement->bindValue('origin', $player['origin'], \PDO::PARAM_INT);
-        $statement->bindValue('picture', $player['picture'], \PDO::PARAM_INT);
-        $statement->bindValue('kind', $player['kind'], \PDO::PARAM_INT);
-        $statement->bindValue('life', $player['life'], \PDO::PARAM_INT);
+        $statement->bindValue('id', $player->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('charac_id', $player->getCharacId(), \PDO::PARAM_INT);
+        $statement->bindValue('name', $player->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('species', $player->getSpecie(), \PDO::PARAM_STR);
+        $statement->bindValue('gender', $player->getGender(), \PDO::PARAM_STR);
+        $statement->bindValue('origin', $player->getOrigin(), \PDO::PARAM_STR);
+        $statement->bindValue('picture', $player->getPicture(), \PDO::PARAM_STR);
+        $statement->bindValue('kind', $player->getKind(), \PDO::PARAM_STR);
+        $statement->bindValue('life', $player->getLife(), \PDO::PARAM_INT);
+        $statement->bindValue('x_init', $player->getX(), \PDO::PARAM_INT);
+        $statement->bindValue('y_init', $player->getY(), \PDO::PARAM_INT);
 
-        $statement->execute();
+        if ($statement->execute()) {
+            return (int)$this->pdo->lastInsertId();
+        }
     }
 
+    public function updateXY(int $x, int $y, int $playerid)
+    {
+        $statement="";
+        // prepared request
+        if ($playerid == 1) {
+            $statement = $this->pdo->prepare("UPDATE $this->table SET `x_init` = :x, `x_init` = :x, 
+player1_reveal = 1 WHERE id=:id");
+        } else {
+            $statement = $this->pdo->prepare("UPDATE $this->table SET `x_init` = :x, `x_init` = :x, 
+player2_reveal = 1 WHERE id=:id");
+        }
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `x_init` = :x, `x_init` = :x,  WHERE id=:id");
+        $statement->bindValue('x', $x, \PDO::PARAM_INT);
+        $statement->bindValue('y', $y, \PDO::PARAM_INT);
+        $statement->bindValue('id', $playerid, \PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
+
+    public function updateLife(int $life, int $playerid)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `life` = :life WHERE id=:id");
+        $statement->bindValue('life', $life, \PDO::PARAM_INT);
+        $statement->bindValue('id', $playerid, \PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
 }

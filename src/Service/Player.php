@@ -1,8 +1,9 @@
 <?php
 
-
 namespace App\Service;
 
+use App\Model\ObjectManager;
+use App\Model\PlayerManager;
 use App\Service\Charac;
 
 class Player
@@ -11,14 +12,36 @@ class Player
     private $id;
     private $charac_id;
     private $name;
+    private $specie;
     private $gender;
     private $origin;
     private $picture;
     private $kind;
-    private $life = 100;
+    private $life;
+    private $X;
+    private $Y;
 
 
-    public function __construct($kind)
+    public function __construct($id)
+    {
+        $playerManager = new PlayerManager();
+        $playerCharacteristics=$playerManager->selectOneById($id);
+
+        if (!empty($playerCharacteristics)) {
+            $this->setCharacId($playerCharacteristics['charac_id']);
+            $this->setName($playerCharacteristics['name']);
+            $this->setSpecie($playerCharacteristics['species']);
+            $this->setGender($playerCharacteristics['gender']);
+            $this->setOrigin($playerCharacteristics['origin']);
+            $this->setPicture($playerCharacteristics['picture']);
+            $this->setKind($playerCharacteristics['kind']);
+            $this->setLife($playerCharacteristics['life']);
+            $this->setX($playerCharacteristics['X_init']);
+            $this->setY($playerCharacteristics['Y_init']);
+        }
+    }
+
+    public function init($kind, $xinit = 1, $yinit = 1)
     {
         $player = new Charac('', $kind);
         $this->setCharacId($player->getId());
@@ -27,10 +50,65 @@ class Player
         $this->setOrigin($player->getGender());
         $this->setPicture($player->getPicture());
         $this->setKind($player->getkind());
-
+        $this->life =100;
         if ($this->kind == 'vegan') {
             $this->life += 20;
         }
+        $this->setX($xinit);
+        $this->setY($yinit);
+
+        $playerManager = new PlayerManager();
+        $playerManager->insert($this);
+    }
+
+    public function goLeft() : bool
+    {
+        $playerManager = new PlayerManager();
+        $playerManager->updateXY($this->getX()-1, $this->getY(), $this->getId());
+        return true;
+    }
+    public function goRight() : bool
+    {
+        $playerManager = new PlayerManager();
+        $playerManager->updateXY($this->getX()+1, $this->getY(), $this->getId());
+        return true;
+    }
+    public function goUp() : bool
+    {
+        $playerManager = new PlayerManager();
+        $playerManager->updateXY($this->getX(), $this->getY()+1, $this->getId());
+        return true;
+    }
+    public function goDown() : bool
+    {
+        $playerManager = new PlayerManager();
+        $playerManager->updateXY($this->getX()-1, $this->getY()-1, $this->getId());
+        return true;
+    }
+
+    public function getBag() : array
+    {
+        $objectManager=new ObjectManager();
+
+        return $objectManager->getBag($this->getId());
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getSpecie()
+    {
+        return $this->specie;
+    }
+
+    /**
+     * @param mixed $specie
+     */
+    public function setSpecie($specie): void
+    {
+        $this->specie = $specie;
     }
 
     /**
@@ -65,6 +143,38 @@ class Player
         return $this->id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getX()
+    {
+        return $this->X;
+    }
+
+    /**
+     * @param mixed $X
+     */
+    public function setX($X): void
+    {
+        $this->X = $X;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getY()
+    {
+        return $this->Y;
+    }
+
+    /**
+     * @param mixed $Y
+     */
+    public function setY($Y): void
+    {
+        $this->Y = $Y;
+    }
+
 
     /**
      * @return mixed
@@ -82,24 +192,7 @@ class Player
         $this->name = $name;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSpecies()
-    {
-        return $this->kind;
-    }
-
-    /**
-     * @param mixed $species
-     */
-    public function setSpecies($species): void
-    {
-        $this->kind = $species;
-    }
-
-
-    /**
+     /**
      * @return mixed
      */
     public function getGender()
