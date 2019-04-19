@@ -14,6 +14,7 @@ use App\Model\ObjectManager;
 use App\Service\Egg;
 use App\Service\Map;
 use App\Model\PlayerManager;
+use App\Service\Player;
 
 /**
  * Class ItemController
@@ -33,6 +34,39 @@ class MapController extends AbstractController
     public function index()
     {
 
+        $playerNext = 1;
+        echo $_POST['player_next'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $_POST['goWhere'];
+            if (isset($_POST['player_next'])) {
+                $playerNext = $_POST['player_next'];
+                if ($playerNext == 2) {
+                    $playerNext = 1;
+                } else {
+                    $playerNext = 2;
+                }
+            };
+
+            $player = new Player($playerNext);
+            echo $player->getX();
+            echo $player->getY();
+            switch ($_POST['goWhere']) {
+                case "up":
+                    $player->goUp();
+                    break;
+                case "down":
+                    $player->goDown();
+                    break;
+                case "left":
+                    $player->goLeft();
+                    break;
+                case "right":
+                    $player->goRight();
+                    break;
+            }
+        }
+
+
         $playerManager = new PlayerManager;
         $players = $playerManager->selectAll();
 
@@ -45,7 +79,6 @@ class MapController extends AbstractController
         $eggPlayer2 = $objectManager->getCountEgg(2);
 
 
-
         $map = new Map(12, 12, 3, 6, 4, 3);
 
         $mapCells = $map->getAllCells();
@@ -54,9 +87,9 @@ class MapController extends AbstractController
             'map' => $map,
             'cells' => $mapCells,
             'players' => $players,
-            'player_id'=> 2,
-        'player1'=> ['milk' => $milkPlayer1, 'chocolate' => $chocolatePlayer1, 'egg' => $eggPlayer1],
-        'player2'=> ['milk' => $milkPlayer2, 'chocolate' => $chocolatePlayer2, 'egg' => $eggPlayer2]
+            'player_id' => $playerNext,
+            'player1' => ['milk' => $milkPlayer1, 'chocolate' => $chocolatePlayer1, 'egg' => $eggPlayer1],
+            'player2' => ['milk' => $milkPlayer2, 'chocolate' => $chocolatePlayer2, 'egg' => $eggPlayer2]
         ]);
     }
 }
