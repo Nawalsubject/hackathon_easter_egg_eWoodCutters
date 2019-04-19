@@ -12,6 +12,7 @@ use App\Model\PlayerManager;
 use App\Service\Player;
 use App\Service\Map;
 use App\Service\CellContent;
+use http\Header;
 
 class HomeController extends AbstractController
 {
@@ -57,20 +58,22 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/config.html.twig', ['classes' => $this->class]);
     }
 
-    public function choice($kind, $player = 1)
+    public function player1($kind)
     {
         $classSelected = ['caid', 'intello', 'sportif', 'vegan'];
 
+        $player1 = new Player(1);
+        $player1->init($classSelected[$kind - 1], 1, 1);
+        return $this->twig->render('Home/config.html.twig', ['classes' => $this->class,
+            'secondChoice' => true, 'player1' => $player1]);
+    }
 
-        if ($player == 1) {
-            $player1 = new Player(1);
-            $player1->init($classSelected[$kind - 1], 1, 1);
-            return $this->twig->render('Home/config.html.twig', ['classes' => $this->class,
-                'secondChoice' => true, 'player1' => $player1]);
-        } else {
-            $player2 = new Player(2);
-            $player2->init($classSelected[$kind - 1], 12, 12);
-            return $this->twig->render('Map/index.html.twig');
-        }
+    public function player2($kind)
+    {
+        $classSelected = ['caid', 'intello', 'sportif', 'vegan'];
+
+        $player2 = new Player(2);
+        $player2->init($classSelected[$kind - 1], 12, 12);
+        header('Location: ../../Map/index');
     }
 }
