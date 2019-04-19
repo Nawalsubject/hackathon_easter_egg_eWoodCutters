@@ -9,14 +9,8 @@
 
 namespace App\Model;
 
-/**
- *
- */
 class ObjectManager extends AbstractManager
 {
-    /**
-     *
-     */
     const TABLE = 'object';
     const EGG = 1;
     const MILK = 2;
@@ -30,6 +24,47 @@ class ObjectManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
+
+    public function insert(array $object)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("INSERT INTO :mytable (content_type_id, player_id) 
+VALUES (:content_type_id, :player_id)");
+        $statement->bindValue('content_type_id', $object['content_type_id'], \PDO::PARAM_INT);
+        $statement->bindValue('player_id', $object['player_id'], \PDO::PARAM_INT);
+
+        if ($statement->execute()) {
+            return (int)$this->pdo->lastInsertId();
+        }
+    }
+
+    public function selectAllPlayerObjects($player_id)
+    {
+        return $query = $this->pdo->query("SELECT * FROM $this->table JOIN content_type 
+        ON object.content_type_id=content_type.id WHERE player_id=$player_id AND content_type.bag=1")->fetchAll();
+    }
+
+    public function insertEgg(array $object)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("INSERT INTO :mytable (content_type_id,content_id,player_id) 
+VALUES (:content_type_id, :content_id, :player_id)");
+        $statement->bindValue('content_type_id', $object['content_type_id'], \PDO::PARAM_INT);
+        $statement->bindValue('content_id', $object['content_id'], \PDO::PARAM_INT);
+        $statement->bindValue('player_id', $object['player_id'], \PDO::PARAM_INT);
+
+        if ($statement->execute()) {
+            return (int)$this->pdo->lastInsertId();
+        }
+    }
+
+    public function delete(int $id): void
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    }
 
     public function getCountEgg(int $player_id)
     {
