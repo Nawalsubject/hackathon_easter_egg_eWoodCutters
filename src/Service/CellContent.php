@@ -9,6 +9,7 @@ use Twig\Loader\FilesystemLoader;
 use App\Service\Player;
 use App\Model\ObjectManager;
 use App\Service\Egg;
+use App\Controller\CellController;
 
 class CellContent
 {
@@ -116,18 +117,14 @@ class CellContent
         $objectManager->delete($id);
     }
 
+    /**
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     private function win()
     {
-        $loader = new FilesystemLoader(APP_VIEW_PATH);
-        $this->twig = new Environment(
-            $loader,
-            [
-                'cache' => !APP_DEV,
-                'debug' => APP_DEV,
-            ]
-        );
-        $this->twig->addExtension(new DebugExtension());
-
-        return $this->twig->render('Home/config.html.twig', ['win' => true]);
+        header('Location: win');
     }
 }
