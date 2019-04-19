@@ -9,6 +9,8 @@
 namespace App\Controller;
 
 use App\Model\PlayerManager;
+use App\Service\Player;
+use App\Service\Map;
 
 class HomeController extends AbstractController
 {
@@ -51,22 +53,23 @@ class HomeController extends AbstractController
         ];
         /* tableau pour test */
 
-
+        $truncatePlayer = new PlayerManager();
+        $truncatePlayer->truncate();
+        $map = new Map(12, 12, 3, 6, 4, 3);
+        $map->generator();
         return $this->twig->render('Home/config.html.twig', ['classes' => $class]);
     }
 
-    public function choice(int $class, $player = 1)
+    public function choice(int $kind, $player = 1)
     {
         if ($player == 1) {
-            $player1 = new PlayerManager($class);
-            return $this->twig->render('Home/config.html.twig', ['classes' => $class, 'secondChoice' => true]);
+            $player1 = new Player(1);
+            $player1->init($kind, 0, 0);
+            return $this->twig->render('Home/config.html.twig', ['classes' => $kind, 'secondChoice' => true]);
         } else {
-            $player2 = new PlayerManager($class);
+            $player2 = new Player(2);
+            $player2->init($kind, 12, 12);
             return $this->twig->render('Map/index.html.twig');
         }
-
-        /* TO DO!!!!!!  TRUNCATE Table PLAYER ET TURN AVANT LA CREATION DES PLAYER par la class Player*/
-
-        return $this->twig->render('Home/config.html.twig', ['classes'=> $class]);
     }
 }

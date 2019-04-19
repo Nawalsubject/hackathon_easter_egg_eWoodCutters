@@ -44,13 +44,6 @@ class MapController extends AbstractController
         ];
         /* tableau pour test */
 
-
-
-        $map = new Map(12, 12, 3, 6, 4, 3);
-        // A FAIRE : TRUNCATE TABLE PLAYER
-        $map->generator();
-        $mapCells = $map->getAllCells();
-
         return $this->twig->render('Map/index.html.twig', [
             'map' => $map,
             'cells' => $mapCells,

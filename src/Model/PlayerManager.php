@@ -4,6 +4,7 @@ namespace App\Model;
 
 use App\Service\Charac;
 
+
 /**
  * Class PlayerManager
  */
@@ -15,7 +16,7 @@ class PlayerManager extends AbstractManager
     /**
      *  Initializes this class.
      */
-    public function __construct($id)
+    public function __construct()
     {
         parent::__construct(self::TABLE);
     }
@@ -43,4 +44,5 @@ class PlayerManager extends AbstractManager
 
         $statement->execute();
     }
+
 }

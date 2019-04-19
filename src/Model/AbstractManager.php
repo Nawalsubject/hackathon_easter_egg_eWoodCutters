@@ -74,4 +74,14 @@ abstract class AbstractManager
 
         return $statement->fetch();
     }
+
+    /**
+     * Truncate table for
+     */
+    public function truncate(){
+
+        $statement = $this->pdo->prepare('TRUNCATE TABLE ' . $this->table);
+        $statement->execute();
+    }
+
 }
