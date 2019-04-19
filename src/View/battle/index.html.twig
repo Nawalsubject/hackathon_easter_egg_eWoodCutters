@@ -1,26 +1,24 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
     <!-- Background + sound -->
-    <div class="container ">
+    {#<div class="container">
 
-{#        <video class="fullscreen" autoplay="true" loop#}
-{#               src="https://preview.redd.it/zbkvapl8lp601.gif?format=mp4&s=d4393460e03d7c1f117f166f32819e54b793ee1f"></video>#}
-{#    </div>#}
-{#    <audio autoplay="true" loop>#}
-{#        <source src="{{ base_path ~ directory }}/assets/images/back-in-black.mp3" type="audio/mp3"/>#}
-{#        Votre navigateur n'est pas compatible#}
-{#    </audio>#}
-{#    <!-- fin background + sound -->#}
+        <video class="fullscreen" autoplay="true" loop
+               src="https://preview.redd.it/zbkvapl8lp601.gif?format=mp4&s=d4393460e03d7c1f117f166f32819e54b793ee1f"></video>
 
-    <div class="d-flex justify-content-between" >
-        {% for player in players %}
-            {% include 'Item/_battleCard.html.twig' %}
-        {% endfor %}
+    </div>#}
+
+    <div class="end_file">
+        <h1 class="h1_endfile">En attente de PR</h1>
+        <div class="d-flex justify-content-between card_battle_final">
+            {% for player in players %}
+                {% include 'Item/_battleCard.html.twig' %}
+            {% endfor %}
+        </div>
+
+
     </div>
-        {{ dump(player1) }}
-        <h1>{{ player.name }} doit jouer </h1>
-    </div>
-    </div>
+
 
 
 {% endblock %}

@@ -54,13 +54,19 @@ class PlayerManager extends AbstractManager
         $statement="";
         // prepared request
         if ($playerid == 1) {
-            $statement = $this->pdo->prepare("UPDATE $this->table SET `x_init` = :x, `x_init` = :x, 
-player1_reveal = 1 WHERE id=:id");
+            $statement = $this->pdo->prepare("UPDATE cell SET  player1_reveal = 1 WHERE `x` = :x AND `y` = :y");
+            $statement->bindValue('x', $x, \PDO::PARAM_INT);
+            $statement->bindValue('y', $y, \PDO::PARAM_INT);
+
+            $statement->execute();
         } else {
-            $statement = $this->pdo->prepare("UPDATE $this->table SET `x_init` = :x, `x_init` = :x, 
-player2_reveal = 1 WHERE id=:id");
+            $statement = $this->pdo->prepare("UPDATE cell SET  player2_reveal = 1 WHERE `x` = :x AND `y` = :y");
+            $statement->bindValue('x', $x, \PDO::PARAM_INT);
+            $statement->bindValue('y', $y, \PDO::PARAM_INT);
+            $statement->execute();
         }
-        $statement = $this->pdo->prepare("UPDATE $this->table SET `x_init` = :x, `x_init` = :x,  WHERE id=:id");
+
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `x_init` = :x, `y_init` = :y WHERE id=:id");
         $statement->bindValue('x', $x, \PDO::PARAM_INT);
         $statement->bindValue('y', $y, \PDO::PARAM_INT);
         $statement->bindValue('id', $playerid, \PDO::PARAM_INT);

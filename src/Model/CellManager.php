@@ -44,6 +44,23 @@ class CellManager extends AbstractManager
 
         return $statement->fetch();
     }
+    /**
+     * @param int $x
+     * @param int $y
+     * @return array
+     */
+    public function selectContentTypeOneByXY(int $x, int $y):array
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT content_type_id FROM $this->table WHERE x=:x AND y=:y");
+        $statement->bindValue('x', $x, \PDO::PARAM_INT);
+        $statement->bindValue('y', $y, \PDO::PARAM_INT);
+
+        $statement->execute();
+
+        return $statement->fetch();
+    }
+
 
     /**
      * @param array $cellContent
@@ -59,6 +76,21 @@ class CellManager extends AbstractManager
         return $statement->execute();
     }
 
+    /**
+     * @param int $x
+     * @param int $y
+     * @return bool
+     */
+    public function updateContentStatus(int $x, int $y):bool
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `content_type_id` = NULL, 
+`content_status` = 0 WHERE x=:x AND y=:y");
+        $statement->bindValue('x', $x, \PDO::PARAM_INT);
+        $statement->bindValue('y', $y, \PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
     /**
      * @param array $cell
      * @return int

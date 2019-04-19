@@ -20,15 +20,15 @@ class HomeController extends AbstractController
     private $class = [
         ['id' => 1, 'name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
             'description' => 'Mi-ours, mi-scorpion et re-mi-ours derrière', 'bonus' => 'Force : + 2',
-            'Malus' => 'Intelligence : -20'],
+            'malus' => 'Intelligence : -20'],
         ['id' => 2, 'name' => 'Les Intellos', 'picture' => '/assets/images/intello.png',
-            'description' => 'Chouchou de la maitresse', 'bonus' => 'Dextérité : + 2', 'Malus' => 'Courage : -15'],
+            'description' => 'Chouchou de la maitresse', 'bonus' => 'Dextérité : + 2', 'malus' => 'Courage : -15'],
         ['id' => 3, 'name' => 'Les Sportifs', 'picture' => '/assets/images/sportif.jpg',
             'description' => 'Foooooot , du foot, du foot , du foot !', 'bonus' => 'déplacement : + 1',
-            'Malus' => 'Micro pénis'],
+            'malus' => 'Micro pénis'],
         ['id' => 4, 'name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
             'description' => 'Je suis pas gros. je suis jovial et épanoui !', 'bonus' => 'Santé : + 20',
-            'Malus' => 'Charisme : -50']
+            'malus' => 'Charisme : -50']
     ];
 
     /**
@@ -46,6 +46,21 @@ class HomeController extends AbstractController
         $test->action();*/
 
         return $this->twig->render('Home/index.html.twig');
+    }
+
+    /**
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function eggs()
+    {
+        $array = ['bully.gif','sylv1.JPG', 'sadako.JPG', 'vincent.JPG',
+            'milk.gif', 'milk2.gif', 'hack.JPG', 'lapin.gif', 'sylvain.JPG', 'hell.JPG'];
+        $key= array_rand($array);
+
+        return $this->twig->render('Home/eggs.html.twig', ['picture' => $array[$key]]);
     }
 
     public function config()

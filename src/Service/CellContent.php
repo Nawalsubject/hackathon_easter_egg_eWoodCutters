@@ -15,6 +15,7 @@ class CellContent
     private $twig;
     private $content_type_id;
     private $player_id;
+    private $object_id;
 
     const TABLE = 'object';
 
@@ -22,6 +23,25 @@ class CellContent
     {
         $this->content_type_id=$content_type_id;
         $this->player_id=$player_id;
+        $this->object_id = 0;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getObjectId()
+    {
+        return $this->object_id;
+    }
+
+    /**
+     * @param mixed $object_id
+     */
+    public function setObjectId($object_id): void
+    {
+        $this->object_id = $object_id;
     }
 
     /**
@@ -60,13 +80,13 @@ class CellContent
     {
         switch ($this->content_type_id) {
             case 1:
-                $this->addEgg();
+                $this->object_id = $this->addEgg();
                 break;
             case 2:
-                $this->addMilk();
+                $this->object_id = $this->addMilk();
                 break;
             case 3:
-                $this->addChoco();
+                $this->object_id = $this->addChoco();
                 break;
             case 4:
                 $this->deleteObject();
