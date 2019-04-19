@@ -60,13 +60,13 @@ class CellContent
     {
         switch ($this->content_type_id) {
             case 1:
-                return $this->addEgg();
+                $this->addEgg();
                 break;
             case 2:
-                return $this->addMilk();
+                $this->addMilk();
                 break;
             case 3:
-                return $this->addChoco();
+                $this->addChoco();
                 break;
             case 4:
                 $this->deleteObject();
