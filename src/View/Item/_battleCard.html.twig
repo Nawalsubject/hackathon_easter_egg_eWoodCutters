@@ -1,0 +1,60 @@
+<div class="card card_border{{ player.id }}">
+    <div class="additional additional{{ player.id }}">
+        <div class="user-card user_card_size">
+            <div class="level center">
+                {{ player.gender }}
+            </div>
+            <div class="class center">
+                <img class="logo-player" src="
+                {% if player.kind == "caid" %}/assets/images/biceps.png
+                {% elseif player.kind == "intello" %}/assets/images/lunettes.png
+                {% elseif player.kind == "sportif" %}/assets/images/exercice.png
+                {% elseif player.kind == "vegan" %}/assets/images/nouriture_nat.png
+                {% endif %}" alt="logo du perso">
+            </div>
+            <img class="user-picture" src="{{ player.picture }}" alt="image du joueur">
+        </div>
+        <div class="more-info">
+            <h2 style="color: black">{{ player.name }}</h2>
+            <div class="coords">
+                <span style="color: black">Espèces : {{ player.species }}</span>
+                <span style="color: black">Genre : {{ player.gender }}</span>
+            </div>
+            <div class="coords">
+                <span style="color: black">Origine : {{ player.origin }}</span>
+                <span style="color: black">Classe : {{ player.kind }}</span>
+            </div>
+            <div class="stats icons">
+                <div>
+                    <div class="title"><img class="milk" src="/assets/images/milk.png"></div>
+                    <i class="fa fa-milk"></i>
+                    <div class="value">{% if player.id == 1 %}{{ player1.milk }}{% else %}{{ player2.milk }}{% endif %}</div>
+                </div>
+                <div>
+                    <div class="title"><img class="chocolate" src="/assets/images/tablette_choc.png"></div>
+                    <i class="fa fa-chocolate"></i>
+                    <div class="value">{% if player.id == 1 %}{{ player1.chocolate }}{% else %}{{ player2.chocolate }}{% endif %}</div>
+                </div>
+                <div>
+                    <div class="title"><img class="eggs" src="/assets/images/eggs2.png"></div>
+                    <i class="fa fa-eggs"></i>
+                    <div class="value">{% if player.id == 1 %}{{ player1.egg }}{% else %}{{ player2.egg }}{% endif %}</div>
+                </div>
+                <div>
+                    <div class="title"><img class="life" src="/assets/images/heart.png"></div>
+                    <i class="fa fa-life"></i>
+                    <div class="value">{{ player.life }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="general">
+        <h2>{{ player.name }}</h2>
+        <p>{{ player.description }}</p>
+        <span class="more">+ d'infos</span>
+    </div>
+    <div>
+        <img>{{ player.egg }}
+    </div>
+</div>
+
