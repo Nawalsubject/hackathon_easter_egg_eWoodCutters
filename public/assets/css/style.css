@@ -451,7 +451,7 @@ h1{
 .box {
     background: #49a790;
     filter: blur(1px);
-    opacity: .9;
+    background-color: rgba(130,130,130,.9);
     border-color: white;
 
     color: white;
@@ -482,7 +482,7 @@ h1{
 }
 
 .map-cell-reveal{
-    opacity: 0 !important;
+    background-color: rgba(130,130,130,0);
     filter: none;
 }
 
@@ -497,3 +497,5 @@ h1{
 .map-player2{
     background: blue;
 }
+
+

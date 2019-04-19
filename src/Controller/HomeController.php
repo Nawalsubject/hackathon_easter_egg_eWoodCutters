@@ -61,11 +61,15 @@ class HomeController extends AbstractController
     {
         $classSelected = ['caid', 'intello', 'sportif', 'vegan'];
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            var_dump($_POST['player_id']);
+        }
 
         if ($player == 1) {
             $player1 = new Player(1);
             $player1->init($classSelected[$kind - 1], 1, 1);
-            return $this->twig->render('Home/config.html.twig', ['classes' => $this->class,
+            return $this->twig->render('Home/config.html.twig', [
+                'classes' => $this->class,
                 'secondChoice' => true, 'player1' => $player1]);
         } else {
             $player2 = new Player(2);

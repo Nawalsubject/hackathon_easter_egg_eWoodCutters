@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    {{ dump(players) }}
+
+
     <!-- Background + sound -->
     <div class="container justify-content-center mx-auto">
 
@@ -21,6 +22,12 @@
                 {% endfor %}
                 <div class="row text-center">
                     <div class="controller gamepad">
+                        <form action="">
+                            <button type="button" class="btn btn-dark" value="up" name="goWhere">Haut</button>
+                            <button type="button" class="btn btn-dark" value="down"name="goWhere">Bas</button>
+                            <button type="button" class="btn btn-dark" value="left"name="goWhere">Gauche</button>
+                            <button type="button" class="btn btn-dark" value="right"name="goWhere">Droite</button>
+                        </form>
                         <img src="/assets/images/dpad.png">
                     </div>
                 </div>
@@ -32,18 +39,25 @@
                     {% for i  in 1..map.height %}
                         <div class="row m-0">
                             {% for i  in 1..map.width %}
-                                <div class="box border border-white {{ cells[count].player1_reveal == 1 ? 'map-cell-reveal' : '' }}">
-                                    <div class=" inner {{ cells[count].content_type_id == 1 ? 'map-egg' }}
+                                {% set reveal = 0 %}
+                                {% if player_id == 1 %}
+                                     {% set reveal = cells[count].player1_reveal %}
+                                {% else %}
+                                    {% set reveal = cells[count].player2_reveal %}
+                                {% endif %}
+                                <div class="box border border-white {{ reveal == 1 ? 'map-cell-reveal' : '' }}">
+                                    <div class=" inner
+{{ cells[count].content_type_id == 1 ? 'map-egg' }}
 {{ cells[count].content_type_id == 2 ? 'map-milk' }}
 {{ cells[count].content_type_id == 3 ? 'map-choco' }}
 {{ cells[count].content_type_id == 4 ? 'map-monster' }}
 {{ cells[count].content_type_id == 5 ? 'map-superegg' }}
 
-"><img src="{{ cells[count].content_type_id == 5 ? '/assets/images/easteregg2.png' }}">
-   <img src="{{ cells[count].content_type_id == 3 ? '/assets/images/choco_tablet2.png' }}">
-     <img src="{{ cells[count].content_type_id == 2 ? '/assets/images/lait2.png' }}">
-       <img src="{{ cells[count].content_type_id == 4 ? '/assets/images/monster2.png' }}">
-         <img src="{{ cells[count].content_type_id == 1 ? '/assets/images/normal_egg2.png' }}">
+"><img src="{{ cells[count].content_type_id == 5 and reveal == 1 ? '/assets/images/easteregg2.png' }}" >
+   <img src="{{ cells[count].content_type_id == 3 and reveal == 1 ? '/assets/images/choco_tablet2.png' }}">
+     <img src="{{ cells[count].content_type_id == 2 and reveal == 1 ? '/assets/images/lait2.png' }}">
+       <img src="{{ cells[count].content_type_id == 4 and reveal == 1 ? '/assets/images/monster2.png' }}">
+         <img src="{{ cells[count].content_type_id == 1 and reveal == 1 ? '/assets/images/normal_egg2.png' }}">
                                     </div>
                                 </div>
                                 {% set count = count + 1 %}
