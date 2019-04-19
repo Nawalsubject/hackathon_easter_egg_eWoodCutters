@@ -13,7 +13,7 @@
         <p class="card-text card_title_text">++ {{ class.bonus }}</p>
         <p class="card-text card_title_text">-- {{ class.malus }}</p>
         <form action={% if secondChoice == false %}"/home/player1/{{ class.id }}"{% else %}"/home/player2/{{ class.id }}"{% endif %} method="post">
-            <button class=" mt-2 btn btn-primary">GO</button>
+            <button class="btn btn-lg btn-yellow">GO</button>
         </form>
     </div>
 </div>
