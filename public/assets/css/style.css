@@ -327,12 +327,14 @@ table tr{
     font-family: 'retro', serif;
     text-transform: capitalize;
     font-size: 50px;
+
 }
 
 .card_title_text{
     font-family: 'retro', serif;
     text-transform: capitalize;
     font-size: 30px;
+    margin-bottom: 0;
 }
 
 .card_emplacement{
@@ -388,11 +390,11 @@ video.full_opacity{
 }
 
 .choose_perso_title{
-    margin-top: 150px;
+    margin-top: 100px;
     position: relative;
     width: 70%;
     top: 0%;
-    left: 50%;
+    left: 40%;
     -webkit-transform: translate(-50%, -50%);
 }
 
