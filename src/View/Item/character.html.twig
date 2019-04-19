@@ -4,16 +4,16 @@
     </div>
     <div class="card-body">
         <h2 class="card-title card_title_player">{{ class.name }}</h2>
-        <p class="card-text card_title_text">{{ class.description }}</p>
+        <p class="mt-2 card-text card_title_text" style="height: 120px;">{{ class.description }}</p>
         <ul class="list-group list-group-flush">
             {% for race in class.races %}
                 <li class="list-group-item card_title_text">{{ race }}</li>
             {% endfor %}
         </ul>
-        <p class="card-text card_title_text">{{ class.bonus }}</p>
+        <p class="card-text card_title_text">++ {{ class.bonus }}</p>
+        <p class="card-text card_title_text">-- {{ class.malus }}</p>
         <form action={% if secondChoice == false %}"/home/player1/{{ class.id }}"{% else %}"/home/player2/{{ class.id }}"{% endif %} method="post">
             <button class="btn btn-lg btn-yellow">GO</button>
         </form>
     </div>
 </div>
-
