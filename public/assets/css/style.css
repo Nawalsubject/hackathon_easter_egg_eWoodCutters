@@ -288,6 +288,13 @@ table{
 
 .btn-yellow{
     background-color: #ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: 'retro', sans-serif;
+    font-size: 40px;
+    color: #c62b29;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .btn-dark{
@@ -314,13 +321,14 @@ table tr{
 /* -------------- CARD CONFIG --------------*/
 .class-picture {
     margin-top: 20px;
-    height: 80px;
+    height: 60px;
     width: auto;
 }
 
 .card-config {
     width: 1300px;
     height: auto;
+    margin-top: -80px;
 }
 
 .card_title_player{
