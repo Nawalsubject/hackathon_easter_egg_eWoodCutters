@@ -128,6 +128,6 @@ class CellContent
         );
         $this->twig->addExtension(new DebugExtension());
 
-        $this->twig->render('Map/index.html.twig', ['win' => true]);
+        return $this->twig->render('Home/config.html.twig', ['win' => true]);
     }
 }
