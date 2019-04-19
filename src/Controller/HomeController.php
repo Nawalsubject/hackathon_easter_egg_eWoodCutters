@@ -49,7 +49,10 @@ class HomeController extends AbstractController
             ['name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
                 'description' => 'description ... ']
         ];
-        /* tableau pour test */
+
+        /* TO DO!!!!!!  TRUNCATE Table PLAYER ET TURN AVANT LA CREATION DES PLAYER par la class Player*/
+
+
         return $this->twig->render('Home/config.html.twig', ['classes'=> $class]);
     }
 }

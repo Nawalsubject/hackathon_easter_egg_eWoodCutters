@@ -31,6 +31,7 @@ class MapController extends AbstractController
      */
     public function index()
     {
+
         /* tableau pour test */
 
         $players = [
@@ -44,12 +45,17 @@ class MapController extends AbstractController
         /* tableau pour test */
 
 
-        $map = new Map(12, 12, 2, 2, 3);
+
+        $map = new Map(12, 12, 3, 6, 4, 3);
+        // A FAIRE : TRUNCATE TABLE PLAYER
         $map->generator();
-        /*        $egg = new Egg();
-                $egg->loadData();*/
-        //return 'Genérateur Map OK';
-        return $this->twig->render('Map/index.html.twig', ['map' => $map, 'players' => $players]);
+        $mapCells = $map->getAllCells();
+
+        return $this->twig->render('Map/index.html.twig', [
+            'map' => $map,
+            'cells' => $mapCells,
+            'players' => $players
+        ]);
     }
 
 
