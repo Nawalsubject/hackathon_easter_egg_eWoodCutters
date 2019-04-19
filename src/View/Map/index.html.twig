@@ -19,9 +19,10 @@
                     {% include 'Item/_playerCard.html.twig' %}
                 {% endfor %}
                 <div class="row text-center">
+                    {% if content==false %}
                     <div class="controller gamepad">
 
-                        <form action="index" method="post">
+                        <form action="show" method="post">
                             <button type="submit" class="btn btn-dark"value="up" name="goWhere">Haut</button>
                             <button type="submit" class="btn btn-dark"value="down" name="goWhere">Bas</button>
                             <button type="submit" class="btn btn-dark"value="left" name="goWhere">Gauche</button>
@@ -31,6 +32,18 @@
 
                         <img src="/assets/images/dpad.png">
                     </div>
+                    {% endif %}
+                    {% if content==true %}
+                        <div class="controller gamepad">
+
+                            <form action="index" method="post">
+                                <div class="text-center btn_play">
+                                    <button type="submit" class="btn btn-item-next">JOUEUR SUIVANT</button>
+                                </div>
+                                <input type="hidden" name="player_next" value="{{ player_id }}"/>
+                            </form>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
             <!-- Début tableau ----------------->

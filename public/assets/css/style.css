@@ -503,3 +503,26 @@ h1{
 }
 
 
+
+.btn-item-next{
+    background-color: blue;
+    padding: 10px 50px;
+    border-radius: 20px;
+    color: crimson;
+    font-size: 40px;
+}
+
+.btn-item-next .play_link {
+    text-decoration: none;
+}
+
+.play_link:link, .play_link:visited {
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.play_link:hover, .play_link:active {
+    color: #c62b29;
+}

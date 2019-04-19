@@ -58,7 +58,7 @@ VALUES (:content_type_id, :player_id)");
     public function insertEgg(array $object)
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO :mytable (content_type_id,content_id,player_id) 
+        $statement = $this->pdo->prepare("INSERT INTO ". self::TABLE . " (content_type_id,content_id,player_id) 
 VALUES (:content_type_id, :content_id, :player_id)");
         $statement->bindValue('content_type_id', $object['content_type_id'], \PDO::PARAM_INT);
         $statement->bindValue('content_id', $object['content_id'], \PDO::PARAM_INT);

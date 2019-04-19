@@ -310,4 +310,16 @@ class Map
 
         return $mapCells;
     }
+
+
+    public function getContent($x, $y) : int
+    {
+        $cellManager = new CellManager();
+        $cellContent = $cellManager->selectContentTypeOneByXY($x, $y);
+        $contenttypeid=-1;
+        if (!empty($cellContent['content_type_id'])) {
+            $contenttypeid=$cellContent['content_type_id'];
+        }
+        return $contenttypeid;
+    }
 }
