@@ -24,6 +24,10 @@ h1 {
     float: right;
 }
 
+.menu_left {
+    float: left ;
+}
+
 .menu_dropdown{
     background-color: #feb81c;
     border: none;
@@ -319,7 +323,7 @@ table tr{
 
 .center_card_player {
     position: absolute;
-    top: 130px;
+    top: 200px;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
 }
@@ -526,8 +530,27 @@ h1{
     background: blue;
 }
 
+
+.card-player-light {
+    opacity: .5;
+}
+.card-player-playin {
+    border-width: 5px;
+    border-color: black;
+
 .player_locate {
     border: 2px solid #c62b29;
+
+}
+
+
+
+.btn-item-next{
+    background-color: blue;
+    padding: 10px 50px;
+    border-radius: 20px;
+    color: crimson;
+    font-size: 40px;
 }
 
 .end_file {
@@ -584,4 +607,7 @@ h1{
     75% { color: #feb81c; }
 }
 
+.btn-item-next .play_link {
+    text-decoration: none;
+}
 
