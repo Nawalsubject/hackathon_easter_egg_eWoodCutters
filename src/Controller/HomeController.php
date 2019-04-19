@@ -18,15 +18,15 @@ class HomeController extends AbstractController
 {
 
     private $class = [
-        ['id' => 1, 'name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
+        ['id' => 1, 'name' => 'Les Caïds', 'picture' => '/assets/images/caid.png',
             'description' => 'Mi-ours, mi-scorpion et re-mi-ours derrière', 'bonus' => 'Force : + 2',
             'malus' => 'Intelligence : -20'],
         ['id' => 2, 'name' => 'Les Intellos', 'picture' => '/assets/images/intello.png',
             'description' => 'Chouchou de la maitresse', 'bonus' => 'Dextérité : + 2', 'malus' => 'Courage : -15'],
-        ['id' => 3, 'name' => 'Les Sportifs', 'picture' => '/assets/images/sportif.jpg',
+        ['id' => 3, 'name' => 'Les Sportifs', 'picture' => '/assets/images/sportif.png',
             'description' => 'Foooooot , du foot, du foot , du foot !', 'bonus' => 'déplacement : + 1',
             'malus' => 'Micro pénis'],
-        ['id' => 4, 'name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
+        ['id' => 4, 'name' => 'Les Végans', 'picture' => '/assets/images/vegan.png',
             'description' => 'Je suis pas gros. je suis jovial et épanoui !', 'bonus' => 'Santé : + 20',
             'malus' => 'Charisme : -50']
     ];
