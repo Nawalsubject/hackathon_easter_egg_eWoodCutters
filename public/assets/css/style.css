@@ -173,8 +173,9 @@ html, body {
 .user-picture{
     border-radius :50%;
     width: 45%;
+    max-height: 45%;
     position: absolute;
-    top: 50px;
+    top: 55px;
     left: 55px;
 }
 
@@ -248,8 +249,30 @@ html, body {
 }
 
 .gamepad{
+    position: relative;
     margin-left: auto;
     margin-right: auto;
+}
+
+table{
+    z-index: 100;
+    background-image: url("/assets/images/dpad.png");
+}
+
+.btn-dark{
+    width: 90px;
+    height: 90px;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-dark:hover{
+    background-color: #2e2dfa;
+    opacity: 0.4;
+}
+
+table tr{
+    width: 100px;
 }
 
 .logo-player{

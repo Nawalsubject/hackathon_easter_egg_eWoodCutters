@@ -6,10 +6,7 @@
         <video class="fullscreen" autoplay="true" loop
                src="https://preview.redd.it/zbkvapl8lp601.gif?format=mp4&s=d4393460e03d7c1f117f166f32819e54b793ee1f"></video>
     </div>
-    <audio autoplay="true" loop>
-        <source src="{{ base_path ~ directory }}/assets/images/back-in-black.mp3" type="audio/mp3"/>
-        Votre navigateur n'est pas compatible
-    </audio>
+
     <!-- fin background + sound -->
 
     <div class="container-fluid container_padding mt-2">
@@ -21,12 +18,31 @@
                 <div class="row text-center">
                     <div class="controller gamepad">
                         <form action="">
-                            <button type="button" class="btn btn-dark" value="up" name="goWhere">Haut</button>
-                            <button type="button" class="btn btn-dark" value="down"name="goWhere">Bas</button>
-                            <button type="button" class="btn btn-dark" value="left"name="goWhere">Gauche</button>
-                            <button type="button" class="btn btn-dark" value="right"name="goWhere">Droite</button>
+                            <table class="table_control">
+                                <tbody style="width: 300px">
+                                <tr style="height: 100px">
+                                    <td style="height: 100px"></td>
+                                    <td style="width: 100px"><button type="button" class="btn btn-dark" value="up" name="goWhere"></button></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="height: 100px">
+                                    <td style="width: 100px"><button type="button" class="btn btn-dark" value="left"name="goWhere"></button></td>
+                                    <td style="width: 100px"></td>
+                                    <td style="width: 100px"><button type="button" class="btn btn-dark" value="right"name="goWhere"></button></td>
+                                </tr>
+                                <tr style="height: 100px">
+                                    <td style="width: 100px"></td>
+                                    <td style="width: 100px"><button type="button" class="btn btn-dark" value="down"name="goWhere"></button></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+
+
+
+
+                            </table>
                         </form>
-                        <img src="/assets/images/dpad.png">
+
                     </div>
                 </div>
             </div>
