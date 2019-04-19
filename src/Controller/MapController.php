@@ -10,8 +10,10 @@
 namespace App\Controller;
 
 use App\Model\MapManager;
+use App\Model\ObjectManager;
 use App\Service\Egg;
 use App\Service\Map;
+use App\Model\PlayerManager;
 
 /**
  * Class ItemController
@@ -19,7 +21,6 @@ use App\Service\Map;
  */
 class MapController extends AbstractController
 {
-
 
     /**
      * Display map
@@ -32,33 +33,29 @@ class MapController extends AbstractController
     public function index()
     {
 
-        /* tableau pour test */
+        $playerManager = new PlayerManager;
+        $players = $playerManager->selectAll();
 
-        $players = [
-            ['id' => 1, 'name' => 'Darth Vader', 'picture' => 'https://images.innoveduc.fr/easter_hackathon/3.jpeg',
-                'species' => 'Human', 'gender' => 'male', 'origin' => 'Earth', 'class' => 'intello'],
-            ['id' => 2, 'name' => 'Abadango Cluster Princess',
-                'picture' => 'https://images.innoveduc.fr/easter_hackathon/6.jpeg', 'species' => 'Alien',
-                'gender' => 'female', 'origin' => 'Abadango', 'class' => 'caid'],
-
-        ];
-        /* tableau pour test */
+        $objectManager = new ObjectManager();
+        $milkPlayer1 = $objectManager->getCountMilk(1);
+        $milkPlayer2 = $objectManager->getCountMilk(2);
+        $chocolatePlayer1 = $objectManager->getCountChocolate(1);
+        $chocolatePlayer2 = $objectManager->getCountChocolate(2);
+        $eggPlayer1 = $objectManager->getCountEgg(1);
+        $eggPlayer2 = $objectManager->getCountEgg(2);
 
 
 
         $map = new Map(12, 12, 3, 6, 4, 3);
-        // A FAIRE : TRUNCATE TABLE PLAYER
-
-       // $map->generator();
-
-
 
         $mapCells = $map->getAllCells();
 
         return $this->twig->render('Map/index.html.twig', [
             'map' => $map,
             'cells' => $mapCells,
-            'players' => $players
+            'players' => $players,
+        'player1'=> ['milk' => $milkPlayer1, 'chocolate' => $chocolatePlayer1, 'egg' => $eggPlayer1],
+        'player2'=> ['milk' => $milkPlayer2, 'chocolate' => $chocolatePlayer2, 'egg' => $eggPlayer2]
         ]);
     }
 }

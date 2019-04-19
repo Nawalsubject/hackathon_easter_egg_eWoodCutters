@@ -1,4 +1,5 @@
 <div class="card card-config text-center">
+    {{ dump(class) }}
     <div class="">
         <img class="card-img-top class-picture" src="{{ class.picture }}" alt="image de classe">
     </div>
@@ -11,7 +12,7 @@
             {% endfor %}
         </ul>
         <p class="card-text card_title_text">{{ class.bonus }}</p>
-        <form action="{% if secondChoice == true %}/home/choice/{{ class.id }}/2{% endif %}/home/choice/{{ class.id }}" method="post">
+        <form action="{% if secondChoice == true %}/home/choice/2/1{% else %}/home/choice/1"{% endif %} method="post">
             <button class="btn btn-primary">GO</button>
         </form>
     </div>
