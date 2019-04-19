@@ -27,16 +27,18 @@ class Player
         $playerManager = new PlayerManager();
         $playerCharacteristics=$playerManager->selectOneById($id);
 
-        $this->setCharacId($playerCharacteristics['charac_id']);
-        $this->setName($playerCharacteristics['name']);
-        $this->setSpecie($playerCharacteristics['species']);
-        $this->setGender($playerCharacteristics['gender']);
-        $this->setOrigin($playerCharacteristics['origin']);
-        $this->setPicture($playerCharacteristics['picture']);
-        $this->setKind($playerCharacteristics['kind']);
-        $this->setLife($playerCharacteristics['life']);
-        $this->setX($playerCharacteristics['X_init']);
-        $this->setY($playerCharacteristics['Y_init']);
+        if (!empty($playerCharacteristics)) {
+            $this->setCharacId($playerCharacteristics['charac_id']);
+            $this->setName($playerCharacteristics['name']);
+            $this->setSpecie($playerCharacteristics['species']);
+            $this->setGender($playerCharacteristics['gender']);
+            $this->setOrigin($playerCharacteristics['origin']);
+            $this->setPicture($playerCharacteristics['picture']);
+            $this->setKind($playerCharacteristics['kind']);
+            $this->setLife($playerCharacteristics['life']);
+            $this->setX($playerCharacteristics['X_init']);
+            $this->setY($playerCharacteristics['Y_init']);
+        }
     }
 
     public function init($kind, $xinit = 1, $yinit = 1)

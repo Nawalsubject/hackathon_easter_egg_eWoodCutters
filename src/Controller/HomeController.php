@@ -31,7 +31,6 @@ class HomeController extends AbstractController
 
         $chocolateManager = new ObjectManager();
         $nbChocolates = $chocolateManager->getCountChocolate(1);*/
-
         return $this->twig->render('Home/index.html.twig');
     }
 
@@ -58,7 +57,7 @@ class HomeController extends AbstractController
     public function choice(int $class, $player = 1)
     {
         if ($player == 1) {
-            $player1 = new PlayerManager($class);
+            $player1 = new PlayerManager();
             return $this->twig->render('Home/config.html.twig', ['classes' => $class, 'secondChoice' => true]);
         } else {
             $player2 = new PlayerManager($class);
