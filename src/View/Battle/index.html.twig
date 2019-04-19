@@ -1,0 +1,6 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    {% for player in players %}
+        {% include 'Item/battle.html.twig' %}
+    {% endfor %}
+{% endblock %}
