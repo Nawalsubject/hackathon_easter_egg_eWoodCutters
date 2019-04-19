@@ -216,7 +216,6 @@ html, body {
     position: absolute;
     bottom: 1rem;
     right: 1rem;
-    font-size: 0.9em;
     font-family: 'retro', sans-serif;
     font-size: 30px;
 }
@@ -237,6 +236,11 @@ html, body {
 
 }.life {
     width: 43%;
+}
+
+.container_padding{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /*--------------- CARD PLAYER --------------*/
