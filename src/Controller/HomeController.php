@@ -8,7 +8,9 @@
 
 namespace App\Controller;
 
-use App\Model\PLayerManager;
+use App\Model\PlayerManager;
+use App\Service\Player;
+use App\Service\Map;
 
 class HomeController extends AbstractController
 {
@@ -23,14 +25,6 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        /*$eggManager = new ObjectManager();
-        $nbEggs = $eggManager->getCountEgg(1);
-
-        $milkManager = new ObjectManager();
-        $nbMilk = $milkManager->getCountMilk(1);
-
-        $chocolateManager = new ObjectManager();
-        $nbChocolates = $chocolateManager->getCountChocolate(1);*/
 
         return $this->twig->render('Home/index.html.twig');
     }
@@ -39,20 +33,37 @@ class HomeController extends AbstractController
     {
         /* tableau pour test */
 
-        $class= [
-            ['name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
-                'races' =>[ 'race1', 'race2', 'race3']],
-            ['name' => 'Les Intellos', 'picture' => '/assets/images/intello.png',
+        $class = [
+            ['id' => 1, 'name' => 'Les Caïds', 'picture' => '/assets/images/caid.jpeg',
+                'races' => ['race1', 'race2', 'race3']],
+            ['id' => 2, 'name' => 'Les Intellos', 'picture' => '/assets/images/intello.png',
                 ['races' => 'race YO', 'race POUET']],
-            ['name' => 'Les Sportifs', 'picture' => '/assets/images/sportif.jpg',
-            'description' => 'description ... '],
-            ['name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
+            ['id' => 3, 'name' => 'Les Sportifs', 'picture' => '/assets/images/sportif.jpg',
+                'description' => 'description ... '],
+            ['id' => 4, 'name' => 'Les Végans', 'picture' => '/assets/images/vegan.jpg',
                 'description' => 'description ... ']
         ];
+        /* tableau pour test */
 
-        /* TO DO!!!!!!  TRUNCATE Table PLAYER ET TURN AVANT LA CREATION DES PLAYER par la class Player*/
+        $truncatePlayer = new PlayerManager();
+        $truncatePlayer->truncate();
+        $map = new Map(12, 12, 3, 6, 4, 3);
+        $map->generator();
+        return $this->twig->render('Home/config.html.twig', ['classes' => $class]);
+    }
 
+    public function choice($kind, $player = 1)
+    {
+        $class = ['caid', 'intello', 'sportif', 'vegan'];
 
-        return $this->twig->render('Home/config.html.twig', ['classes'=> $class]);
+        if ($player == 1) {
+            $player1 = new Player(1);
+            $player1->init($kind, 1, 1);
+            return $this->twig->render('Home/config.html.twig', ['classes' => $kind, 'secondChoice' => true]);
+        } else {
+            $player2 = new Player(2);
+            $player2->init($class[$kind], 12, 12);
+            return $this->twig->render('Map/index.html.twig');
+        }
     }
 }

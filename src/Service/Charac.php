@@ -14,6 +14,7 @@ class Charac
     private $name;
     private $gender;
     private $origin;
+    private $specie;
     private $picture;
     private $skills;
     public $caids = ['Alien', 'Cronenberg', 'Disease'];
@@ -28,7 +29,7 @@ class Charac
         $this->setkind($kind);
         $characParameters = $this->loadData();
         $this->setId($characParameters['id']);
-        $this->setkind($characParameters['species']);
+        $this->setspecie($characParameters['species']);
         $this->setName($characParameters['name']);
         $this->setGender($characParameters['gender']);
         $this->setOrigin($characParameters['origin']);
@@ -83,6 +84,22 @@ class Charac
         }
 
         return $charachs;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSpecie()
+    {
+        return $this->specie;
+    }
+
+    /**
+     * @param mixed $specie
+     */
+    public function setSpecie($specie): void
+    {
+        $this->specie = $specie;
     }
 
     /**
