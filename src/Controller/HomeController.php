@@ -60,15 +60,17 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/config.html.twig', ['classes' => $class]);
     }
 
-    public function choice(int $kind, $player = 1)
+    public function choice($kind, $player = 1)
     {
+        $class = ['caid', 'intello', 'sportif', 'vegan'];
+
         if ($player == 1) {
             $player1 = new Player(1);
-            $player1->init($kind, 0, 0);
+            $player1->init($class[$kind], 0, 0);
             return $this->twig->render('Home/config.html.twig', ['classes' => $kind, 'secondChoice' => true]);
         } else {
             $player2 = new Player(2);
-            $player2->init($kind, 12, 12);
+            $player2->init($class[$kind], 12, 12);
             return $this->twig->render('Map/index.html.twig');
         }
     }
