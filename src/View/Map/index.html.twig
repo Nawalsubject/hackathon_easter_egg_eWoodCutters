@@ -59,7 +59,7 @@
                                 {% else %}
                                     {% set reveal = cells[count].player2_reveal %}
                                 {% endif %}
-                                <div class="box border border-white {{ reveal == 1 ? 'map-cell-reveal' : '' }}">
+                                <div class="box border border-white player_locate {{ reveal == 1 ? 'map-cell-reveal' : '' }}">
                                     <div class=" inner
 {{ cells[count].content_type_id == 1 ? 'map-egg' }}
 {{ cells[count].content_type_id == 2 ? 'map-milk' }}
