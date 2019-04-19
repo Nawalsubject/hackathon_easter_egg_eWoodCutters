@@ -46,9 +46,6 @@ class Charac
             ]
         );
 
-
-        echo $this->getkind();
-
         if (!empty($this->id)) {
             $response = $client->request('GET', $this->id);
             $body = $response->getBody();
