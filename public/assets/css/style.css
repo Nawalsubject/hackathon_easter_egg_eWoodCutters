@@ -6,6 +6,11 @@ html, body {
     font-family: Abel, Arial, Verdana, sans-serif;
 }
 
+h1 {
+    font-family: 'retro' , sans-serif;
+    font-size: 5vw;
+}
+
 .li_menu{
     text-decoration: none;
     list-style: none;
