@@ -540,7 +540,7 @@ h1{
 }
 
 .player_locate {
-    border: 2px solid #c62b29;
+    border: 2px solid #c62b29; !important;
 
 }
 
@@ -612,3 +612,48 @@ h1{
     text-decoration: none;
 }
 
+
+.h2_endfile{
+    padding-top: 0px;
+    font-size: 90px;
+    color: #1d5ea0;
+    -webkit-animation: color-change 1.5s infinite;
+    -moz-animation: color-change 1.5s infinite;
+    -o-animation: color-change 1.5s infinite;
+    -ms-animation: color-change 1.5s infinite;
+    animation: color-change 1.5s infinite;
+}
+
+@-webkit-keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}
+@-moz-keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}
+
+@-ms-keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}
+
+@-o-keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}
+
+@keyframes color-change {
+    0% { color: #1d5ea0; }
+    25% { color: #49a790; }
+    50% { color: #c62b29; }
+    75% { color: #feb81c; }
+}

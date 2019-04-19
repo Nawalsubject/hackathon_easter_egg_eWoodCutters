@@ -136,7 +136,7 @@ class MapController extends AbstractController
             'player1' => ['milk' => $milkPlayer1, 'chocolate' => $chocolatePlayer1, 'egg' => $eggPlayer1],
             'player2' => ['milk' => $milkPlayer2, 'chocolate' => $chocolatePlayer2, 'egg' => $eggPlayer2],
             'content' => true,
-            '$content_id' => $content_id
+            'content_id' => $content_id
         ]);
     }
 }

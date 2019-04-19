@@ -15,7 +15,7 @@
                 {% for player in players %}
                     {% include 'Item/_playerCard.html.twig' %}
                 {% endfor %}
-                <div class="row text-center">
+                <div class="row text-center justify-content-center">
                     {% if content==false %}
                     <div class="controller gamepad">
 
@@ -39,10 +39,6 @@
                                     <td></td>
                                 </tr>
                                 </tbody>
-
-
-
-
                             </table>
 
                             <input type="hidden" name="player_next" value="{{ player_id }}"/>
@@ -51,14 +47,40 @@
                     </div>
                     {% endif %}
                     {% if content==true %}
-                        <div class="controller gamepad">
+                        <form action="index" method="post">
+                            <div class="text-center btn_play w-100" style="margin-top: 20px;margin-bottom: 20px; ">
+                                <button type="submit" class="btn btn-item" >JOUEUR SUIVANT</button>
+                            </div>
+                            <input type="hidden" name="player_next" value="{{ player_id }}"/>
+                        </form>
 
-                            <form action="index" method="post">
-                                <div class="text-center btn_play">
-                                    <button type="submit" class="btn btn-item">JOUEUR SUIVANT</button>
-                                </div>
-                                <input type="hidden" name="player_next" value="{{ player_id }}"/>
-                            </form>
+
+                        {% set imagegif =  '/assets/gif/lapin.gif' %}
+                        {%  set titlegif =  'Cours Mon lapin !!!'  %}
+                        {%  if content_id ==  1  %}
+                        {% set imagegif =  '/assets/gif/egg.gif' %}
+                        {%  set titlegif =  'Oh tu as gagné un oeuf !'  %}
+                        {%  endif  %}
+                        {%  if content_id ==  2  %}
+                            {% set imagegif =  '/assets/gif/milk.gif' %}
+                            {%  set titlegif =  'Hmm Du bon lait !'  %}
+                        {%  endif  %}
+                        {%  if content_id ==  3  %}
+                            {% set imagegif =  '/assets/gif/choco.gif' %}
+                            {%  set titlegif =  'Croques mon lapin !'  %}
+                        {%  endif  %}
+                        {%  if content_id ==  4  %}
+                            {% set imagegif =  '/assets/gif/bully2.gif' %}
+                            {%  set titlegif =  'Geronimmooo !'  %}
+                        {%  endif  %}
+                        <div class="controller w-100">
+                            <div class="card m-0  w-100 " >
+                                        <img class="card-img-top" style="height: 100%; background-color: #feb81c; opacity: .5; object-fit: contain;"
+                                             src="{{  base_path ~ directory  ~ imagegif}}" alt="Card image cap">
+                                        <div class="card-img-overlay">
+                                            <h2 class="h2_endfile">{{ titlegif }}</h2>
+                                        </div>
+                            </div>
                         </div>
                     {% endif %}
                 </div>

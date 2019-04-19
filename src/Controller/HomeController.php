@@ -68,7 +68,7 @@ class HomeController extends AbstractController
 
         $truncatePlayer = new PlayerManager();
         $truncatePlayer->truncate();
-        $map = new Map(12, 12, 3, 6, 4, 3);
+        $map = new Map(12, 12, 20, 15, 15, 12);
         $map->generator();
         return $this->twig->render('Home/config.html.twig', ['classes' => $this->class]);
     }
