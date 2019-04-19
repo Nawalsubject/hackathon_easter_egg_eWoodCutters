@@ -56,9 +56,9 @@ class CellContent
         $this->player_id = $player_id;
     }
 
-    public function action($content_type_id)
+    public function action()
     {
-        switch ($content_type_id) {
+        switch ($this->content_type_id) {
             case 1:
                 return $this->addEgg();
                 break;
@@ -112,7 +112,7 @@ class CellContent
         $objectManager = new ObjectManager();
         $objects = $objectManager->selectAllPlayerObjects($this->player_id);
         shuffle($objects);
-        $id = $objects['id'][0];
+        $id = $objects[0]['id'];
         $objectManager->delete($id);
     }
 

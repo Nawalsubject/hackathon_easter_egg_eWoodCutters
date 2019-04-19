@@ -11,6 +11,8 @@ namespace App\Model;
 
 class ObjectManager extends AbstractManager
 {
+    public $tableObject = 'object';
+
     const TABLE = 'object';
     const EGG = 1;
     const MILK = 2;
@@ -28,13 +30,13 @@ class ObjectManager extends AbstractManager
     public function insert(array $object)
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO :mytable (content_type_id, player_id) 
+        $statement = $this->pdo->prepare("INSERT INTO ". self::TABLE . "(content_type_id, player_id) 
 VALUES (:content_type_id, :player_id)");
         $statement->bindValue('content_type_id', $object['content_type_id'], \PDO::PARAM_INT);
         $statement->bindValue('player_id', $object['player_id'], \PDO::PARAM_INT);
 
         if ($statement->execute()) {
-            return (int)$this->pdo->lastInsertId();
+            return $this->pdo->lastInsertId();
         }
     }
 

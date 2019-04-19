@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Model\PLayerManager;
+use App\Service\CellContent;
 
 class HomeController extends AbstractController
 {
@@ -31,6 +32,9 @@ class HomeController extends AbstractController
 
         $chocolateManager = new ObjectManager();
         $nbChocolates = $chocolateManager->getCountChocolate(1);*/
+
+        /*$test = new CellContent(4, 1);
+        $test->action();*/
 
         return $this->twig->render('Home/index.html.twig');
     }
