@@ -22,12 +22,14 @@
                 {% endfor %}
                 <div class="row text-center">
                     <div class="controller gamepad">
-                        <form action="">
-                            <button type="button" class="btn btn-dark" value="up" name="goWhere">Haut</button>
-                            <button type="button" class="btn btn-dark" value="down"name="goWhere">Bas</button>
-                            <button type="button" class="btn btn-dark" value="left"name="goWhere">Gauche</button>
-                            <button type="button" class="btn btn-dark" value="right"name="goWhere">Droite</button>
+                        <form action="index" method="post">
+                            <button type="submit" class="btn btn-dark"value="up" name="goWhere">Haut</button>
+                            <button type="submit" class="btn btn-dark"value="down" name="goWhere">Bas</button>
+                            <button type="submit" class="btn btn-dark"value="left" name="goWhere">Gauche</button>
+                            <button type="submit" class="btn btn-dark"value="right" name="goWhere">Droite</button>
+                            <input type="hidden" name="player_next" value="{{ player_id }}"/>
                         </form>
+
                         <img src="/assets/images/dpad.png">
                     </div>
                 </div>

@@ -498,4 +498,12 @@ h1{
     background: blue;
 }
 
+.card-player-light {
+    opacity: .5;
+}
+.card-player-playin {
+    border-width: 5px;
+    border-color: black;
+}
+
 

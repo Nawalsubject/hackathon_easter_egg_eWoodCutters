@@ -24,6 +24,7 @@ class Player
 
     public function __construct($id)
     {
+        $this->setId($id);
         $playerManager = new PlayerManager();
         $playerCharacteristics=$playerManager->selectOneById($id);
 
@@ -67,8 +68,8 @@ class Player
     public function goLeft() : bool
     {
         $playerManager = new PlayerManager();
-        if ($this->getX()-1 > 0) {
-            $playerManager->updateXY($this->getX()-1, $this->getY(), $this->getId());
+        if ($this->getY()-1 > 0) {
+            $playerManager->updateXY($this->getX(), $this->getY()-1, $this->getId());
         }
 
         return true;
@@ -76,8 +77,8 @@ class Player
     public function goRight() : bool
     {
         $playerManager = new PlayerManager();
-        if ($this->getX()+1 < 12) {
-            $playerManager->updateXY($this->getX()+1, $this->getY(), $this->getId());
+        if ($this->getY()+1 <= 12) {
+            $playerManager->updateXY($this->getX(), $this->getY()+1, $this->getId());
         }
 
         return true;
@@ -85,8 +86,8 @@ class Player
     public function goUp() : bool
     {
         $playerManager = new PlayerManager();
-        if ($this->$this->getY()-1 > 0) {
-            $playerManager->updateXY($this->getX(), $this->getY()-1, $this->getId());
+        if ($this->getX()-1 > 0) {
+            $playerManager->updateXY($this->getX()-1, $this->getY(), $this->getId());
         }
 
         return true;
@@ -94,8 +95,8 @@ class Player
     public function goDown() : bool
     {
         $playerManager = new PlayerManager();
-        if ($this->$this->getY()+1 < 12) {
-            $playerManager->updateXY($this->getX(), $this->getY()+1, $this->getId());
+        if ($this->getX()+1 <= 12) {
+            $playerManager->updateXY($this->getX()+1, $this->getY(), $this->getId());
         }
         return true;
     }
