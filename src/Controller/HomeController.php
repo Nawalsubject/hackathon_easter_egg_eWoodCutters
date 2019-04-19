@@ -53,11 +53,9 @@ class HomeController extends AbstractController
 
 
         return $this->twig->render('Home/config.html.twig', ['classes' => $class]);
-
-
     }
 
-    public function choice(int $class , $player = 1)
+    public function choice(int $class, $player = 1)
     {
         if ($player == 1) {
             $player1 = new PlayerManager($class);
@@ -66,5 +64,9 @@ class HomeController extends AbstractController
             $player2 = new PlayerManager($class);
             return $this->twig->render('Map/index.html.twig');
         }
+
+        /* TO DO!!!!!!  TRUNCATE Table PLAYER ET TURN AVANT LA CREATION DES PLAYER par la class Player*/
+
+        return $this->twig->render('Home/config.html.twig', ['classes'=> $class]);
     }
 }
