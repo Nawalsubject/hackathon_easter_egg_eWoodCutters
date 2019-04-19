@@ -81,6 +81,5 @@ class Craft
         $objectManager = new ObjectManager();
         $nbMilk = $objectManager->getCountMilk($this->player_id);
         $nbChoco = $objectManager->getCountChocolate($this->player_id);
-
     }
 }
