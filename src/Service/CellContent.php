@@ -145,6 +145,6 @@ class CellContent
      */
     private function win()
     {
-        header('Location: win');
+        header('Location: /Home/win');
     }
 }
