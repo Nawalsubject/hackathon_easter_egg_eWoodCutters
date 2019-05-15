@@ -133,8 +133,11 @@ class CellContent
         $objectManager = new ObjectManager();
         $objects = $objectManager->selectAllPlayerObjects($this->player_id);
         shuffle($objects);
-        $id = $objects[0]['id'];
-        $objectManager->delete($id);
+
+        if (!empty($objects)) {
+            $id = $objects[0]['id'];
+            $objectManager->delete($id);
+        }
     }
 
     /**
