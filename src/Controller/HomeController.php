@@ -78,6 +78,11 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/config.html.twig', ['classes' => $this->class]);
     }
 
+    public function credits()
+    {
+        return $this->twig->render('Home/credits.html.twig');
+    }
+
     public function player1($kind)
     {
         $classSelected = ['caid', 'intello', 'sportif', 'vegan'];
@@ -87,6 +92,7 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/config.html.twig', ['classes' => $this->class,
             'secondChoice' => true, 'player1' => $player1]);
     }
+
 
     public function player2($kind)
     {
