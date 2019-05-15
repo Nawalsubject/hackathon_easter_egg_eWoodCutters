@@ -105,6 +105,6 @@ class HomeController extends AbstractController
 
     public function win()
     {
-        return $this->twig->render('Home/win.html.twig');
+        \header('location: https://media.giphy.com/media/xT0GqciA7Ord2g9M8o/source.gif');
     }
 }
