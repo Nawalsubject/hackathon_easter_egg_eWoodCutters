@@ -37,7 +37,6 @@ class MapController extends AbstractController
     {
 
         $playerNext = 1;
-        echo $_POST['player_next'];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['player_next'])) {
                 $playerNext = $_POST['player_next'];

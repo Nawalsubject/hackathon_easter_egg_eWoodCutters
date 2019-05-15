@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Model\ObjectManager;
 use App\Model\PlayerManager;
 use App\Service\Player;
 use App\Service\Map;
@@ -68,6 +69,10 @@ class HomeController extends AbstractController
 
         $truncatePlayer = new PlayerManager();
         $truncatePlayer->truncate();
+
+        $truncateBags = new ObjectManager();
+        $truncateBags->truncate();
+
         $map = new Map(12, 12, 3, 6, 4, 3);
         $map->generator();
         return $this->twig->render('Home/config.html.twig', ['classes' => $this->class]);
