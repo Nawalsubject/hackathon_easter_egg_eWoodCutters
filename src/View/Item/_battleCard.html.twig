@@ -6,23 +6,23 @@
             </div>
             <div class="class center">
                 <img class="logo-player" src="
-                {% if player.kind == "caid" %}/assets/images/biceps.png
-                {% elseif player.kind == "intello" %}/assets/images/lunettes.png
-                {% elseif player.kind == "sportif" %}/assets/images/exercice.png
-                {% elseif player.kind == "vegan" %}/assets/images/nouriture_nat.png
-                {% endif %}" alt="logo du perso">
+{% if player.kind == "caid" %}/assets/images/biceps.png
+{% elseif player.kind == "intello"%}/assets/images/lunettes.png
+{% elseif player.kind == "sportif"%}/assets/images/exercice.png
+{% elseif player.kind == "vegan"%}/assets/images/nourriture_nat.png
+{% endif%}" alt="logo du perso">
             </div>
             <img class="user-picture" src="{{ player.picture }}" alt="image du joueur">
         </div>
         <div class="more-info">
             <h2 style="color: black">{{ player.name }}</h2>
             <div class="coords">
-                <span style="color: black">Espèces : {{ player.species }}</span>
-                <span style="color: black">Genre : {{ player.gender }}</span>
+                <span style="color: black">Espèces : {{ player.species }} </span>
+                <span style="color: black">Genre : {{ player.gender }} </span>
             </div>
             <div class="coords">
-                <span style="color: black">Origine : {{ player.origin }}</span>
-                <span style="color: black">Classe : {{ player.kind }}</span>
+                <span style="color: black">Origine : {{ player.origin }} </span>
+                <span style="color: black">Classe : {{ player.kind }} </span>
             </div>
             <div class="stats icons">
                 <div>
@@ -52,9 +52,6 @@
         <h2>{{ player.name }}</h2>
         <p>{{ player.description }}</p>
         <span class="more">+ d'infos</span>
-    </div>
-    <div>
-        <img>{{ player.egg }}
     </div>
 </div>
 
