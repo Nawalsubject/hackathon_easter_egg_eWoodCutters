@@ -4,7 +4,6 @@ namespace App\Service;
 
 use GuzzleHttp;
 
-
 /**
  * Class Egg
  */
