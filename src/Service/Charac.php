@@ -42,7 +42,7 @@ class Charac
         // Create a client with a base URI
         $client = new GuzzleHttp\Client(
             [
-                'base_uri' => 'http://easteregg.wildcodeschool.fr/api/characters/',
+                'base_uri' => 'https://tours.wilders.dev/api/characters/',
             ]
         );
 
